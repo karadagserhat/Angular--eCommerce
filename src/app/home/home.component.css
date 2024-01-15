@@ -1,0 +1,23 @@
+.gallery-item {
+  overflow: hidden;
+}
+
+.gallery-item img {
+  display: block;
+  /* width: 100%; */
+  width: 216px;
+  height: 216px;
+  object-fit: cover;
+  transition: all 0.4s;
+}
+
+@media screen and (max-width: 768px) {
+  .gallery-item img {
+    width: 79px;
+    height: 79px;
+  }
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
+}

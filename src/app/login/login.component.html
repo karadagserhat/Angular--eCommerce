@@ -1,7 +1,7 @@
-<section class="grid place-items-center my-12">
+<section class="grid place-items-center flex-auto my-12 bg-base-200">
   <form
     method="post"
-    class="card w-96 p-8 bg-base-100 shadow-lg flex flex-col gap-y-4"
+    class="card w-96 p-8 shadow-lg flex flex-col gap-y-4 border-2 border-base-300"
   >
     <h4 class="text-center text-3xl font-bold">Login</h4>
     <div class="form-control">
@@ -23,13 +23,13 @@
     </div>
     <button
       type="button"
-      class="btn btn-secondary btn-block"
+      class="btn btn-secondary btn-block capitalize"
       onClick="{loginAsGuestUser}"
     >
       guest user
     </button>
     <p class="text-center">
-      <a to="/register" class="ml-2 link link-hover link-primary capitalize">
+      <a to="/register" class="ml-2 link link-hover font-medium capitalize">
         register
       </a>
     </p>

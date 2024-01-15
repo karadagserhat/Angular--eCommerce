@@ -23,10 +23,333 @@
     <div class="mt-10">
       <a
         to="/products"
-        class="btn btn-neutral text-neutral-content text-sm font-light rounded-md ml-[-2rem] uppercase"
+        class="btn btn-accent text-accent-content text-sm font-light rounded-md ml-[-2rem] uppercase"
       >
         Our Products
       </a>
     </div>
   </div>
 </div>
+
+<!-- SERVICES -->
+<div class="grid grid-cols-2 md:grid-cols-4 h-[12rem] bg-base-100">
+  <div
+    class="flex justify-center items-center border border-r-base-300 hover:border-accent hover:bg-accent/30 transition-all duration-300"
+  >
+    <div
+      class="feature-icon w-12 h-12 mb-3 bg-accent rounded-2xl grid place-items-center"
+    >
+      <fa-icon [icon]="icon"></fa-icon>
+    </div>
+    <div class="ml-5">
+      <div class="text-2xl text-red-400 font-bold mb-2">title 1</div>
+      <div class="text-2xl leading-2">text 1</div>
+    </div>
+  </div>
+
+  <div
+    class="flex justify-center items-center border border-r-base-300 hover:border-accent hover:bg-accent/30 transition-all duration-300"
+  >
+    <div
+      class="feature-icon w-12 h-12 mb-3 bg-accent rounded-2xl grid place-items-center"
+    >
+      <fa-icon [icon]="icon"></fa-icon>
+    </div>
+    <div class="ml-5">
+      <div class="text-2xl text-red-400 font-bold mb-2">title 1</div>
+      <div class="text-2xl leading-2">text 1</div>
+    </div>
+  </div>
+
+  <div
+    class="flex justify-center items-center border-r-base-300 border hover:border-accent hover:bg-accent/30 transition-all duration-300"
+  >
+    <div
+      class="feature-icon w-12 h-12 mb-3 bg-accent rounded-2xl grid place-items-center"
+    >
+      <fa-icon [icon]="icon"></fa-icon>
+    </div>
+    <div class="ml-5">
+      <div class="text-2xl text-red-400 font-bold mb-2">title 1</div>
+      <div class="text-2xl leading-2">text 1</div>
+    </div>
+  </div>
+
+  <div
+    class="flex justify-center items-center border-r-base-300 border hover:border-accent hover:bg-accent/30 transition-all duration-300"
+  >
+    <div
+      class="feature-icon w-12 h-12 mb-3 bg-accent rounded-2xl grid place-items-center"
+    >
+      <fa-icon [icon]="icon"></fa-icon>
+    </div>
+    <div class="ml-5">
+      <div class="text-2xl text-red-400 font-bold mb-2">title 1</div>
+      <div class="text-2xl leading-2">text 1</div>
+    </div>
+  </div>
+</div>
+
+<!-- PRODUCTS -->
+<div class="bg-accent/40 p-24">
+  <div class="">
+    <h2
+      class="text-3xl font-medium tracking-wider capitalize pb-4 text-success-content px-12"
+    >
+      Featured Products
+    </h2>
+    <div class="px-12">
+      <div class="border-b border-success-content mb-12"></div>
+    </div>
+  </div>
+
+  <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4 md:px-12">
+    <a
+      routerLink="/products"
+      class="card shadow-xl hover:shadow-2xl transition-all duration-300 h-fit w-fit rounded-md border-2 border-accent-content/10"
+    >
+      <figure class="">
+        <img src="/assets/hero.jpeg" alt="a" class="object-cover" />
+      </figure>
+      <div class="card-body items-center text-center bg-accent/10">
+        <h2 class="card-title capitalize tracking-wider text-success-content">
+          avs
+        </h2>
+        <div class="text-success-content/85">12 dolar</div>
+      </div>
+    </a>
+
+    <a
+      routerLink="/products"
+      class="card shadow-xl hover:shadow-2xl transition-all duration-300 h-fit w-fit rounded-md border-2 border-accent-content/10"
+    >
+      <figure class="">
+        <img src="/assets/hero.jpeg" alt="a" class="object-cover" />
+      </figure>
+      <div class="card-body items-center text-center bg-accent/10">
+        <h2 class="card-title capitalize tracking-wider text-success-content">
+          avs
+        </h2>
+        <div class="text-success-content/85">12 dolar</div>
+      </div>
+    </a>
+
+    <a
+      routerLink="/products"
+      class="card shadow-xl hover:shadow-2xl transition-all duration-300 w-fit h-fit rounded-md border-2 border-accent-content/10"
+    >
+      <figure class="">
+        <img src="/assets/hero.jpeg" alt="a" class="object-cover" />
+      </figure>
+      <div class="card-body items-center text-center bg-accent/10">
+        <h2 class="card-title capitalize tracking-wider text-success-content">
+          avs
+        </h2>
+        <div class="text-success-content/85">12 dolar</div>
+      </div>
+    </a>
+
+    <a
+      routerLink="/products"
+      class="card shadow-xl hover:shadow-2xl transition-all duration-300 w-fit h-fit rounded-md border-2 border-accent-content/10"
+    >
+      <figure class="">
+        <img src="/assets/hero.jpeg" alt="a" class="object-cover" />
+      </figure>
+      <div class="card-body items-center text-center bg-accent/10">
+        <h2 class="card-title capitalize tracking-wider text-success-content">
+          avs
+        </h2>
+        <div class="text-success-content/85">12 dolar</div>
+      </div>
+    </a>
+  </div>
+</div>
+
+<!-- sağ sol story -->
+<div class="bg-primary/10 grid md:grid-cols-2 items-center">
+  <!-- STEP 01 -->
+  <div class="flex flex-col gap-3 p-24 h-full">
+    <h2 class="justify-self-start">INNOVATION IN TRAVEL</h2>
+    <h4 class="">Keep it together—everywhere</h4>
+    <p class="step-description">
+      We took the “lug” out of luggage. With our bags that attach to our
+      suitcases, you can easily roll all your belongings with one hand.
+    </p>
+  </div>
+
+  <div class="flex items-center justify-center">
+    <img
+      src="/assets/hero.jpeg"
+      class="hidden md:block w-22"
+      alt="iPhone app
+    preferences selection screen"
+    />
+  </div>
+  <!-- STEP 02 -->
+  <div class="flex items-center justify-center">
+    <img
+      src="/assets/hero.jpeg"
+      class="step-img"
+      alt="iPhone app
+    meal approving plan screen"
+    />
+  </div>
+  <div class="flex flex-col justify-center p-24">
+    <h3 class="heading-tertiary">Approve your weekly meal plan</h3>
+    <p class="step-description">
+      Once per week, approve the meal plan generated for you by Omnifood AI. You
+      can change ingredients, swap entire meals, or even add your own recipes.
+    </p>
+  </div>
+</div>
+
+<!-- TESTIMONIALS -->
+<section class="bg-base-300 grid md:grid-cols-[55fr,45fr] p-12">
+  <div class="p-12">
+    <span class="">Testimonials</span>
+    <h2 class="">Once you try it, you can't go back</h2>
+
+    <div class="grid grid-cols-[1fr,1fr]">
+      <figure class="testimonial">
+        <img
+          class="w-5 rounded-lg mb-2"
+          alt="Photo of customer Dave Bryson"
+          src="/assets/hero.jpeg"
+        />
+        <blockquote class="testimonial-text">
+          Inexpensive, healthy and great-tasting meals, without even having to
+          order manually! It feels truly magical.
+        </blockquote>
+        <p class="testimonial-name">&mdash; Dave Bryson</p>
+      </figure>
+
+      <figure class="testimonial">
+        <img
+          class="w-5 rounded-lg mb-2"
+          alt="Photo of customer Ben Hadley"
+          src="/assets/hero.jpeg"
+        />
+        <blockquote class="testimonial-text">
+          The AI algorithm is crazy good, it chooses the right meals for me
+          every time. It's amazing not to worry about food anymore!
+        </blockquote>
+        <p class="testimonial-name">&mdash; Ben Hadley</p>
+      </figure>
+
+      <figure class="testimonial">
+        <img
+          class="w-5 rounded-lg mb-2"
+          alt="Photo of customer Ben Hadley"
+          src="/assets/hero.jpeg"
+        />
+        <blockquote class="testimonial-text">
+          Omnifood is a life saver! I just started a company, so there's no time
+          for cooking. I couldn't live without my daily meals now!
+        </blockquote>
+        <p class="testimonial-name">&mdash; Steve Miller</p>
+      </figure>
+
+      <figure class="testimonial">
+        <img
+          class="w-5 rounded-lg mb-2"
+          alt="Photo of customer Ben Hadley"
+          src="/assets/hero.jpeg"
+        />
+        <blockquote class="testimonial-text">
+          I got Omnifood for the whole family, and it frees up so much time!
+          Plus, everything is organic and vegan and without plastic.
+        </blockquote>
+        <p class="testimonial-name">&mdash; Hannah Smith</p>
+      </figure>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-6 md:grid-cols-[1fr,1fr,1fr] gap-5 p-4">
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+      <!-- <figcaption>Caption</figcaption> -->
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+    <figure class="gallery-item">
+      <img
+        src="/assets/hero.jpeg"
+        alt="Photo of beautifully
+      arranged food"
+      />
+    </figure>
+  </div>
+</section>
