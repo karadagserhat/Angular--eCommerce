@@ -1,0 +1,92 @@
+<section class="align-element pt-20">
+  <div class="border-b border-base-300 pb-5">
+    <h2 class="text-3xl font-medium tracking-wider capitalize">
+      Shopping Cart
+    </h2>
+  </div>
+
+  <div class="mt-8 grid gap-8 lg:grid-cols-12">
+    <div class="lg:col-span-8">
+      <!-- <CartItemsList /> -->
+      <article
+        key="{cartID}"
+        class="mb-12 flex flex-col gap-y-4 sm:flex-row flex-wrap border-b border-base-300 pb-6 last:border-b-0"
+      >
+        <!-- {/* IMAGE */} -->
+        <img
+          src="{image}"
+          alt="title"
+          class="h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover"
+        />
+        <!-- {/* INFO */} -->
+        <div class="sm:ml-16 sm:w-48">
+          <!-- {/* TITLE */} -->
+          <h3 class="capitalize font-medium">title</h3>
+          <!-- {/* COMPANY */} -->
+          <h4 class="mt-2 capitalize text-sm text-neutral-content">comp</h4>
+          <!-- {/* COLOR */} -->
+          <p class="mt-4 text-sm capitalize flex items-center gap-x-2">
+            color :
+            <span class="badge badge-sm"></span>
+          </p>
+        </div>
+        <div class="sm:ml-12">
+          <!-- {/* AMOUNT */} -->
+          <div class="form-control max-w-xs">
+            <label htmlFor="amount" class="label p-0">
+              <span class="label-text">Amount</span>
+            </label>
+            <select
+              name="amount"
+              id="amount"
+              class="mt-2 select select-base select-bordered select-xs"
+              value="{amount}"
+              onChange="{handleAmount}"
+            >
+              123
+            </select>
+          </div>
+          <!-- {/* REMOVE */} -->
+          <button class="mt-2 link link-hover text-sm text-red-400">
+            remove
+          </button>
+        </div>
+
+        <!-- {/* PRICE */} -->
+        <p class="font-medium sm:ml-auto">312321</p>
+      </article>
+    </div>
+
+    <div class="lg:col-span-4 lg:pl-4">
+      <!-- <CartTotals /> -->
+      <div class="card bg-base-200">
+        <div class="card-body">
+          <!-- {/* SUBTOTAL */} -->
+          <p class="flex justify-between text-xs border-b border-base-300 pb-2">
+            <span>Subtotal</span>
+            <span class="font-medium">767676</span>
+          </p>
+          <!-- {/* SHIPPING */} -->
+          <p class="flex justify-between text-xs border-b border-base-300 pb-2">
+            <span>Shipping</span>
+            <span class="font-medium">65465</span>
+          </p>
+          <!-- {/* Tax */} -->
+          <p class="flex justify-between text-xs border-b border-base-300 pb-2">
+            <span>Tax</span>
+            <span class="font-medium">12</span>
+          </p>
+          <!-- {/* Order Total */} -->
+          <p class="flex justify-between text-sm mt-4 pb-2">
+            <span>Order Total</span>
+            <span class="font-medium">43543543</span>
+          </p>
+        </div>
+      </div>
+
+      <a to="/login" class="btn btn-accent btn-block mt-8 capitalize">
+        please login
+      </a>
+    </div>
+  </div>
+</section>

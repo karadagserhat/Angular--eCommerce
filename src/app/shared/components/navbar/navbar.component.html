@@ -1,31 +1,72 @@
 <nav class="bg-base-100">
-  <div class="navbar align-element">
+  <div class="navbar px-12">
     <div class="navbar-start">
       <!-- LOGO -->
 
-      <a routerLink="/">
+      <a routerLink="/" class="flex items-center">
         <img src="assets/logo.png" alt="Hyper" class="h-12 w-12" />
+        <span class="text-2xl font-extrabold font-sans text-accent-content"
+          >HYPER</span
+        >
       </a>
     </div>
 
     <div class="navbar-center hidden lg:flex">
-      <ul class="menu menu-horizontal">
+      <ul class="menu menu-horizontal gap-8 font-normal">
         <a
-          class="mr-3"
+          class="btn btn-ghost font-medium"
           routerLink="/"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
-          >eee</a
+          >Home</a
         >
         <a
+          class="btn btn-ghost font-medium"
           routerLink="/products"
           routerLinkActive="active"
           [routerLinkActiveOptions]="{ exact: true }"
-          >pro</a
+          >Products</a
+        >
+        <a
+          class="btn btn-ghost font-medium"
+          routerLink="/cart"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Cart</a
+        >
+        <a
+          class="btn btn-ghost font-medium"
+          routerLink="/checkout"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }"
+          >Checkout</a
         >
       </ul>
     </div>
 
-    <div class="navbar-end"></div>
+    <div class="navbar-end">
+      <div>gece</div>
+      <a routerLink="/cart" class="btn btn-ghost btn-circle ml-4">
+        <div class="indicator">
+          <svg
+            stroke="currentColor"
+            fill="currentColor"
+            stroke-width="0"
+            viewBox="0 0 16 16"
+            class="h-6 w-6"
+            height="1em"
+            width="1em"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              d="M0 1.5A.5.5 0 0 1 .5 1H2a.5.5 0 0 1 .485.379L2.89 3H14.5a.5.5 0 0 1 .49.598l-1 5a.5.5 0 0 1-.465.401l-9.397.472L4.415 11H13a.5.5 0 0 1 0 1H4a.5.5 0 0 1-.491-.408L2.01 3.607 1.61 2H.5a.5.5 0 0 1-.5-.5zM3.102 4l.84 4.479 9.144-.459L13.89 4H3.102zM5 12a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm7 0a2 2 0 1 0 0 4 2 2 0 0 0 0-4zm-7 1a1 1 0 1 1 0 2 1 1 0 0 1 0-2zm7 0a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+            ></path>
+          </svg>
+          <span class="badge badge-sm badge-accent bg-accent/90 indicator-item"
+            >0</span
+          >
+        </div>
+      </a>
+    </div>
   </div>
 </nav>

@@ -1,4 +1,4 @@
-<section class="mx-auto max-w-6xl px-8 pt-20">
+<section class="align-element pt-20">
   <form
     class="bg-base-300 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center"
   >
@@ -70,7 +70,7 @@
         name="price"
         min="{0}"
         max="150"
-        class="range range-primary range-sm"
+        class="range range-accent range-sm"
       />
       <div class="w-full flex justify-between text-xs px-2 mt-2 range-sm">
         <span class="font-bold text-md">0</span>
@@ -79,27 +79,35 @@
     </div>
 
     <!-- SHIPPING  -->
-    <div class="form-control items-center">
+    <div class="form-control items-center lg:mb-[1rem]">
       <label htmlFor="checkbox" class="label cursor-pointer">
         <span class="label-text capitalize">free shipping</span>
       </label>
       <input
         type="checkbox"
         name="checkbox"
-        class="checkbox checkbox-primary checkbox-sm"
+        class="checkbox checkbox-accent border-2 border-accent checkbox-sm"
       />
     </div>
 
     <!-- BUTTONS  -->
-    <button type="submit" class="btn btn-primary btn-sm capitalize">
+    <button
+      type="submit"
+      class="btn border-0 bg-accent/70 hover:bg-accent/90 btn-sm capitalize text-accent-content"
+    >
       search
     </button>
-    <a to="/products" class="btn btn-secondary btn-sm capitalize"> reset </a>
+    <a
+      to="/products"
+      class="btn border-0 bg-secondary/50 hover:bg-secondary/70 btn-sm capitalize text-secondary-content"
+    >
+      reset
+    </a>
   </form>
 </section>
 
 <!-- PRODUCTS CONTAINER -->
-<section class="mx-auto max-w-6xl px-8">
+<section class="align-element">
   <div
     class="flex justify-between items-center mt-8 border-b border-base-300 pb-5"
   >
@@ -119,31 +127,36 @@
         <img src="/assets/hero.jpeg" alt="a" class="object-cover" />
       </figure>
       <div class="card-body items-center text-center bg-accent/10">
-        <h2 class="card-title capitalize tracking-wider text-success-content">
-          avs
-        </h2>
-        <div class="text-success-content/85">12 dolar</div>
+        <h2 class="card-title capitalize tracking-wider">avs</h2>
+        <div class="">12 dolar</div>
       </div>
     </a>
   </div>
 </section>
 
 <!-- PAGINATION CONTAINER -->
-<section class="mx-auto max-w-6xl px-8 pb-12">
+<section class="align-element pb-12">
   <div class="mt-16 flex justify-end">
     <div class="join">
-      <button class="btn btn-xs sm:btn-md join-item">Prev</button>
+      <button
+        class="btn btn-xs sm:btn-md join-item bg-accent hover:bg-accent/70"
+      >
+        Prev
+      </button>
 
       <button
         key=""
         className="btn btn-xs sm:btn-md border-none join-item 
-        bg-base-200 border-base-200 
       "
       >
-        12
+        1122
       </button>
 
-      <button class="btn btn-xs sm:btn-md join-item">Next</button>
+      <button
+        class="btn btn-xs sm:btn-md join-item bg-accent hover:bg-accent/70"
+      >
+        Next
+      </button>
     </div>
   </div>
 </section>

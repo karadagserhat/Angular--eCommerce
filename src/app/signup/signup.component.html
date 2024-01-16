@@ -1,1 +1,48 @@
-<p>signup works!</p>
+<section class="grid place-items-center flex-auto my-12 bg-base-200">
+  <form method="post" class="max-w-[400px] w-full mx-auto">
+    <h2 class="text-center text-[56px] font-light text-base-content">Hello</h2>
+    <div class="flex w-full">
+      <a
+        routerLink="/login"
+        class="border-[.1px] flex-1 border-r-0 border-base-content/20"
+        routerLinkActive="active-auth"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><span class="grid place-items-center p-5 text-base-content/60"
+          >LOG IN</span
+        ></a
+      >
+      <a
+        routerLink="/signup"
+        class="border-[.1px] flex-1 self-center border-base-content/20"
+        routerLinkActive="active-auth"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><span class="grid place-items-center p-5 text-base-content/60"
+          >SIGN UP</span
+        ></a
+      >
+    </div>
+    <div class="mt-[19px]">
+      <input
+        type="email"
+        name=""
+        placeholder="Email address"
+        class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] outline-none text-2xl w-full bg-base-200"
+      />
+    </div>
+    <div class="mt-[19px]">
+      <input
+        type="password"
+        name=""
+        placeholder="Password"
+        class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] outline-none text-2xl w-full bg-base-200"
+      />
+    </div>
+    <div class="mt-8">
+      <button
+        class="btn bg-accent/80 hover:bg-accent/90 text-accent-content font-medium btn-block rounded-sm uppercase h-[64px] tracking-wide"
+      >
+        Sign Up
+      </button>
+    </div>
+  </form>
+</section>
