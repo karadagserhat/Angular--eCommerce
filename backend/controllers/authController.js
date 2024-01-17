@@ -11,7 +11,7 @@ const register = async (req, res) => {
     throw new CustomError.BadRequestError("Email already exists");
   }
 
-  // res.status(StatusCodes.CREATED).json({ user });
+  res.status(StatusCodes.CREATED).json({ email });
 };
 
 const login = async (req, res) => {
