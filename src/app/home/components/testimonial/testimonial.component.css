@@ -1,0 +1,77 @@
+.testimonial img {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  margin-bottom: 2rem;
+}
+
+.testimonial-text {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  margin-bottom: 1.6rem;
+  width: 80%;
+}
+
+@media screen and (max-width: 768px) {
+  .testimonial-text {
+    width: 100%;
+    font-size: 0.7rem;
+  }
+
+  .testimonial {
+    padding: 10px;
+  }
+
+  img {
+    height: 10rem;
+  }
+}
+
+.gallery-item img:hover {
+  transform: scale(1.1);
+}
+
+/* ************* */
+/************** */
+/* tiles */
+.tiles article {
+  overflow: hidden;
+}
+
+article img {
+  width: 100%;
+  display: block;
+  object-fit: cover;
+  transition: all 0.2s ease-in;
+  border-radius: 6px;
+}
+
+article img:hover {
+  transform: scale(110%);
+}
+
+@media screen and (min-width: 768px) {
+  .tiles-center {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    grid-template-areas:
+      "a a a b"
+      "a a a c"
+      "d d d d ";
+  }
+  .tiles img {
+    height: 100%;
+  }
+  .tile-1 {
+    grid-area: a;
+  }
+  .tile-2 {
+    grid-area: b;
+  }
+  .tile-3 {
+    grid-area: c;
+  }
+  .tile-4 {
+    grid-area: d;
+  }
+}
