@@ -1,3 +1,4 @@
+<!-- HERO -->
 <div class="grid lg:grid-cols-2 min-h-[593px]">
   <!-- HERO img -->
   <div class="hidden lg:flex">
@@ -275,66 +276,82 @@
 <!-- PRODUCTS -->
 <div class="bg-accent/40 p-24 py-32">
   <div class="">
-    <h2 class="text-3xl font-medium tracking-wider capitalize pb-4 px-12">
-      Featured Products
-    </h2>
-    <div class="px-12">
-      <div class="border-b border-success-content mb-12"></div>
+    <div class="card lg:card-side bg-inherit grid grid-cols-2 h-[32rem]">
+      <div class="carousel rounded-sm">
+        <div id="slide1" class="carousel-item relative w-full">
+          <img
+            src="https://daisyui.com/images/stock/photo-1625726411847-8cbb60cc71e6.jpg"
+            class="object-fill"
+          />
+          <div
+            class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
+          >
+            <a href="#slide4" class="btn btn-circle">❮</a>
+            <a href="#slide2" class="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="slide2" class="carousel-item relative w-full">
+          <img
+            src="https://daisyui.com/images/stock/photo-1609621838510-5ad474b7d25d.jpg"
+            class="w-full"
+          />
+          <div
+            class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
+          >
+            <a href="#slide1" class="btn btn-circle">❮</a>
+            <a href="#slide3" class="btn btn-circle">❯</a>
+          </div>
+        </div>
+        <div id="slide3" class="carousel-item relative w-full">
+          <img
+            src="https://daisyui.com/images/stock/photo-1414694762283-acccc27bca85.jpg"
+            class="w-full"
+          />
+          <div
+            class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2"
+          >
+            <a href="#slide2" class="btn btn-circle">❮</a>
+            <a href="#slide4" class="btn btn-circle">❯</a>
+          </div>
+        </div>
+      </div>
+      <div class="card-body">
+        <h2 class="card-title">New album is released!</h2>
+        <p>Click the button to listen on Spotiwhy app.</p>
+        <div class="card-actions">
+          <div class="diets">
+            <h3 class="heading-tertiary">Works with any diet:</h3>
+            <ul class="list">
+              <li class="list-item">
+                <div>icon</div>
+                <span>Vegetarian</span>
+              </li>
+              <li class="list-item">
+                <div>icon</div>
+                <span>Vegan</span>
+              </li>
+              <li class="list-item">
+                <div>icon</div>
+                <span>Pescatarian</span>
+              </li>
+              <li class="list-item">
+                <div>icon</div>
+                <span>Gluten-free</span>
+              </li>
+              <li class="list-item">
+                <div>icon</div>
+                <span>Lactose-free</span>
+              </li>
+              <li class="list-item">
+                <div>icon</div>
+                <span>Keto</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <button class="btn btn-primary">Listen</button>
+      </div>
     </div>
-  </div>
-
-  <div class="grid gap-12 md:grid-cols-2 lg:grid-cols-4 md:px-12">
-    <a
-      routerLink="/products"
-      class="card shadow-xl hover:shadow-2xl transition-all duration-300 h-fit w-fit rounded-md border-2 border-accent-content/10"
-    >
-      <figure class="">
-        <img src="/assets/hero.jpeg" alt="a" class="object-cover" />
-      </figure>
-      <div class="card-body items-center text-center bg-accent/10">
-        <h2 class="card-title capitalize tracking-wider">avs</h2>
-        <div class="">12 dolar</div>
-      </div>
-    </a>
-
-    <a
-      routerLink="/products"
-      class="card shadow-xl hover:shadow-2xl transition-all duration-300 h-fit w-fit rounded-md border-2 border-accent-content/10"
-    >
-      <figure class="">
-        <img src="/assets/hero.jpeg" alt="a" class="object-cover" />
-      </figure>
-      <div class="card-body items-center text-center bg-accent/10">
-        <h2 class="card-title capitalize tracking-wider">avs</h2>
-        <div class="">12 dolar</div>
-      </div>
-    </a>
-
-    <a
-      routerLink="/products"
-      class="card shadow-xl hover:shadow-2xl transition-all duration-300 w-fit h-fit rounded-md border-2 border-accent-content/10"
-    >
-      <figure class="">
-        <img src="/assets/hero.jpeg" alt="a" class="object-cover" />
-      </figure>
-      <div class="card-body items-center text-center bg-accent/10">
-        <h2 class="card-title capitalize tracking-wider">avs</h2>
-        <div class="">12 dolar</div>
-      </div>
-    </a>
-
-    <a
-      routerLink="/products"
-      class="card shadow-xl hover:shadow-2xl transition-all duration-300 w-fit h-fit rounded-md border-2 border-accent-content/10"
-    >
-      <figure class="">
-        <img src="/assets/hero.jpeg" alt="a" class="object-cover" />
-      </figure>
-      <div class="card-body items-center text-center bg-accent/10">
-        <h2 class="card-title capitalize tracking-wider">avs</h2>
-        <div class="">12 dolar</div>
-      </div>
-    </a>
   </div>
 </div>
 
@@ -491,94 +508,3 @@
 </section>
 
 <!--  -->
-
-<div class="bg-primary h-[22rem]">ds</div>
-
-<section class="section-meals" id="meals">
-  <div class="container center-text">
-    <span class="subheading">Meals</span>
-    <h2 class="heading-secondary">Omnifood AI chooses from 5,000+ recipes</h2>
-  </div>
-
-  <div class="container grid grid-cols-3 margin-bottom-md">
-    <div class="meal">
-      <img src="img/meals/meal-1.jpg" class="meal-img" alt="Japanese Gyozas" />
-      <div class="meal-content">
-        <div class="meal-tags">
-          <span class="tag tag--vegetarian">Vegetarian</span>
-        </div>
-        <p class="meal-title">Japanese Gyozas</p>
-        <ul class="meal-attributes">
-          <li class="meal-attribute">
-            <span><strong>650</strong> calories</span>
-          </li>
-          <li class="meal-attribute">
-            <span>NutriScore &reg; <strong>74</strong></span>
-          </li>
-          <li class="meal-attribute">
-            <span><strong>4.9</strong> rating (537)</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="meal">
-      <img src="img/meals/meal-2.jpg" class="meal-img" alt="Avocado Salad" />
-      <div class="meal-content">
-        <div class="meal-tags">
-          <span class="tag tag--vegan">Vegan</span>
-          <span class="tag tag--paleo">Paleo</span>
-        </div>
-        <p class="meal-title">Avocado Salad</p>
-        <ul class="meal-attributes">
-          <li class="meal-attribute">
-            <span><strong>400</strong> calories</span>
-          </li>
-          <li class="meal-attribute">
-            <span>NutriScore &reg; <strong>92</strong></span>
-          </li>
-          <li class="meal-attribute">
-            <span><strong>4.8</strong> rating (441)</span>
-          </li>
-        </ul>
-      </div>
-    </div>
-
-    <div class="diets">
-      <h3 class="heading-tertiary">Works with any diet:</h3>
-      <ul class="list">
-        <li class="list-item">
-          <span>Vegetarian</span>
-        </li>
-        <li class="list-item">
-          <span>Vegan</span>
-        </li>
-        <li class="list-item">
-          <span>Pescatarian</span>
-        </li>
-        <li class="list-item">
-          <span>Gluten-free</span>
-        </li>
-        <li class="list-item">
-          <span>Lactose-free</span>
-        </li>
-        <li class="list-item">
-          <span>Keto</span>
-        </li>
-        <li class="list-item">
-          <span>Paleo</span>
-        </li>
-        <li class="list-item">
-          <span>Low FODMAP</span>
-        </li>
-        <li class="list-item">
-          <span>Kid-friendly</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-
-  <div class="container all-recipes">
-    <a href="#" class="link">See all recipes &rarr;</a>
-  </div>
-</section>
