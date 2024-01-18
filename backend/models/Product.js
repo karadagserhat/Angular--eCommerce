@@ -69,16 +69,21 @@ const ProductSchema = new mongoose.Schema(
   },
   { timestamps: true, toJSON: { virtuals: true }, toObject: { virtuals: true } }
 );
-// sonra
-// ProductSchema.virtual("reviews", {
-//   ref: "Review",
-//   localField: "_id",
-//   foreignField: "product",
-//   justOne: false,
-// });
 
-// ProductSchema.pre("remove", async function (next) {
-//   await this.model("Review").deleteMany({ product: this._id });
-// });
+// for virtuals, you can NOT query. Bu sebeple alternatif route yazılabilir.
+ProductSchema.virtual("reviews", {
+  ref: "Review",
+  localField: "_id",
+  foreignField: "product",
+  justOne: false,
+});
+
+ProductSchema.pre(
+  "deleteOne",
+  { document: true, query: false },
+  async function () {
+    await this.model("Review").deleteMany({ product: this._id });
+  }
+);
 
 module.exports = mongoose.model("Product", ProductSchema);

@@ -14,8 +14,7 @@ const {
   uploadImage,
 } = require("../controllers/productController");
 
-// sonra
-// const { getSingleProductReviews } = require("../controllers/reviewController");
+const { getSingleProductReviews } = require("../controllers/reviewController");
 
 router
   .route("/")
@@ -32,7 +31,6 @@ router
   .patch([authenticateUser, authorizePermissions("admin")], updateProduct)
   .delete([authenticateUser, authorizePermissions("admin")], deleteProduct);
 
-// sonra
-// router.route("/:id/reviews").get(getSingleProductReviews);
+router.route("/:id/reviews").get(getSingleProductReviews);
 
 module.exports = router;
