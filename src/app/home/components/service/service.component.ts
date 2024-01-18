@@ -5,5 +5,6 @@ import { Component } from '@angular/core';
   standalone: true,
   imports: [],
   templateUrl: './service.component.html',
+  styleUrl: './service.component.css',
 })
 export class ServiceComponent {}
