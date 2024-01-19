@@ -45,6 +45,8 @@
     </div>
     <div class="mt-8">
       <button
+        [style.cursor]="(isSubmitting$ | async) ? 'not-allowed' : 'cursor'"
+        [style.opacity]="(isSubmitting$ | async) ? '0.7' : ''"
         class="btn bg-accent/80 hover:bg-accent/90 text-accent-content font-medium btn-block rounded-sm uppercase h-[64px] tracking-wide"
       >
         Sign Up
