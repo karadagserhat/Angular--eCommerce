@@ -2,8 +2,6 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProductsComponent } from './products/products.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
-import { LoginComponent } from './login/login.component';
-import { SignupComponent } from './signup/signup.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
@@ -28,15 +26,15 @@ export const routes: Routes = [
     component: CheckoutComponent,
     title: 'Checkout | Hyper Company',
   },
+
   {
-    path: 'login',
-    component: LoginComponent,
-    title: 'Login | Hyper Company',
+    path: 'register',
+    loadChildren: () =>
+      import('./auth/auth.routes').then((m) => m.registerRoutes),
   },
   {
-    path: 'signup',
-    component: SignupComponent,
-    title: 'Register | Hyper Company',
+    path: 'login',
+    loadChildren: () => import('./auth/auth.routes').then((m) => m.loginRoutes),
   },
 
   // {

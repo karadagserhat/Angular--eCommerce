@@ -12,11 +12,12 @@
         ></a
       >
       <a
-        routerLink="/signup"
+        routerLink="/register"
         class="border-[.1px] flex-1 self-center border-base-content/20"
-        routerLinkActive="active-auth"
-        [routerLinkActiveOptions]="{ exact: true }"
-        ><span class="grid place-items-center p-5 text-base-content/60"
+        ><span
+          class="grid place-items-center p-5 text-base-content/60"
+          routerLinkActive="active-auth"
+          [routerLinkActiveOptions]="{ exact: true }"
           >SIGN UP</span
         ></a
       >
@@ -39,10 +40,17 @@
     </div>
     <div class="mt-8">
       <button
-        class="btn bg-accent/80 hover:bg-accent/90 text-accent-content font-medium btn-block rounded-sm uppercase h-[64px] tracking-wide"
+        class="btn bg-accent/80 text-accent-content font-medium hover:bg-accent/90 btn-block rounded-sm uppercase h-[64px] tracking-wide"
       >
-        Sign Up
+        Log In
       </button>
     </div>
+    <!-- <button
+      type="button"
+      class="mt-4 btn bg-accent/60 text-accent-content font-medium hover:bg-accent/70 btn-block rounded-sm uppercase h-[64px] tracking-wide"
+      onClick="{loginAsGuestUser}"
+    >
+      guest user
+    </button> -->
   </form>
 </section>

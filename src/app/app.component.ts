@@ -16,7 +16,6 @@ import { FooterComponent } from './shared/components/footer/footer.component';
     FooterComponent,
   ],
   templateUrl: './app.component.html',
-  styleUrl: './app.component.css',
 })
 export class AppComponent {
   title = 'Angular-eCommerce';
