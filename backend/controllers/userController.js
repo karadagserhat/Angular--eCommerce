@@ -40,7 +40,7 @@ const updateUser = async (req, res) => {
   const tokenUser = createTokenUser(user);
   const token = user.createJWT();
 
-  res.status(StatusCodes.OK).json({ user: tokenUser, token });
+  res.status(StatusCodes.OK).json({ user: { ...tokenUser, token } });
 };
 
 const updateUserPassword = async (req, res) => {

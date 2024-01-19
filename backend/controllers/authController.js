@@ -20,7 +20,7 @@ const register = async (req, res) => {
   const tokenUser = createTokenUser(user);
   const token = user.createJWT();
 
-  res.status(StatusCodes.CREATED).json({ user: tokenUser, token });
+  res.status(StatusCodes.CREATED).json({ user: { ...tokenUser, token } });
 };
 
 const login = async (req, res) => {
@@ -44,7 +44,7 @@ const login = async (req, res) => {
   const tokenUser = createTokenUser(user);
   const token = user.createJWT();
 
-  res.status(StatusCodes.OK).json({ user: tokenUser, token });
+  res.status(StatusCodes.OK).json({ user: { ...tokenUser, token } });
 };
 
 const logout = async (req, res) => {
