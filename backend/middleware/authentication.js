@@ -1,16 +1,28 @@
 const CustomError = require("../errors");
-const { isTokenValid } = require("../utils");
+const jwt = require("jsonwebtoken");
 
 const authenticateUser = async (req, res, next) => {
-  const token = req.signedCookies.token;
+  let token;
+
+  const authHeader = req.headers.authorization;
+
+  if (authHeader && authHeader.startsWith("Bearer")) {
+    token = authHeader.split(" ")[1];
+  }
 
   if (!token) {
-    throw new CustomError.UnauthenticatedError("Authentication Invalid");
+    throw new CustomError.UnauthenticatedError("Authentication invalid");
   }
 
   try {
-    const { userId, role, email } = isTokenValid({ token });
-    req.user = { userId, role, email };
+    const payload = jwt.verify(token, process.env.JWT_SECRET);
+
+    req.user = {
+      userId: payload.userId,
+      email: payload.email,
+      role: payload.role,
+    };
+
     next();
   } catch (error) {
     throw new CustomError.UnauthenticatedError("Authentication Invalid");
