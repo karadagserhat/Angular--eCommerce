@@ -1,12 +1,21 @@
 <header class="bg-accent py-2 text-accent-content">
   <div class="px-12 flex justify-center sm:justify-end">
     <div class="flex gap-x-6 justify-center items-center">
+      @if (currentUser$ | async; as currentUser) {
+      <div class="text-xs sm:text-sm">Welcome, {{ currentUser.email }}</div>
+      <button
+        class="btn btn-xs btn-outline text-accent-content border-accent-content"
+      >
+        logout
+      </button>
+      } @else {
       <a class="link link-hover text-xs sm:text-sm" routerLink="/login">
-        Sign in / Guest
-      </a>
+        Sign in / Guest</a
+      >
       <a class="link link-hover text-xs sm:text-sm" routerLink="/register">
         Create Account
       </a>
+      }
     </div>
   </div>
 </header>

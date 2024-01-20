@@ -1,6 +1,19 @@
 <section class="grid place-items-center flex-auto my-12 bg-base-200">
-  <form method="post" class="max-w-[400px] w-full mx-auto">
+  <form
+    [formGroup]="form"
+    (ngSubmit)="onSubmit()"
+    class="max-w-[400px] w-full mx-auto"
+  >
     <h2 class="text-center text-[56px] font-light text-base-content">Hello</h2>
+    @if (backendErrors$ | async; as backendErrors) {
+    <div class="">
+      <eCommerce-backend-error-messages [backendErrors]="backendErrors">
+      </eCommerce-backend-error-messages>
+    </div>
+    }@else {
+    <div>&nbsp;</div>
+    }
+
     <div class="flex w-full">
       <a
         routerLink="/login"
@@ -14,43 +27,38 @@
       <a
         routerLink="/register"
         class="border-[.1px] flex-1 self-center border-base-content/20"
-        ><span
-          class="grid place-items-center p-5 text-base-content/60"
-          routerLinkActive="active-auth"
-          [routerLinkActiveOptions]="{ exact: true }"
+        routerLinkActive="active-auth"
+        [routerLinkActiveOptions]="{ exact: true }"
+        ><span class="grid place-items-center p-5 text-base-content/60"
           >SIGN UP</span
         ></a
       >
     </div>
     <div class="mt-[19px]">
       <input
+        formControlName="email"
         type="email"
-        name=""
+        name="email"
         placeholder="Email address"
-        class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] outline-none text-2xl w-full bg-base-200"
+        class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] outline-none text-2xl w-full bg-inherit"
       />
     </div>
     <div class="mt-[19px]">
       <input
+        formControlName="password"
         type="password"
-        name=""
+        name="password"
         placeholder="Password"
-        class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] outline-none text-2xl w-full bg-base-200"
+        class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] outline-none text-2xl w-full bg-inherit"
       />
     </div>
     <div class="mt-8">
       <button
-        class="btn bg-accent/80 text-accent-content font-medium hover:bg-accent/90 btn-block rounded-sm uppercase h-[64px] tracking-wide"
+        class="btn bg-accent/80 hover:bg-accent/90 text-accent-content font-medium btn-block rounded-sm uppercase h-[64px] tracking-wide"
+        [disabled]="isSubmitting$ | async"
       >
         Log In
       </button>
     </div>
-    <!-- <button
-      type="button"
-      class="mt-4 btn bg-accent/60 text-accent-content font-medium hover:bg-accent/70 btn-block rounded-sm uppercase h-[64px] tracking-wide"
-      onClick="{loginAsGuestUser}"
-    >
-      guest user
-    </button> -->
   </form>
 </section>

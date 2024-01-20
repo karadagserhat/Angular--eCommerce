@@ -1,0 +1,52 @@
+<section class="align-element">
+  @if (products$ | async; as products) { @for (item of products.products; track
+  item.name) {
+  {{ item.name }}
+
+  <div
+    class="flex justify-between items-center mt-8 border-b border-base-300 pb-5"
+  >
+    <h4 class="font-medium text-md">22 pro totals</h4>
+    <div class="flex gap-x-2">
+      <button>icon</button>
+    </div>
+  </div>
+
+  <!-- GRID CONTAINER  -->
+  <div class="grid grid-cols-2 md:grid-cols-4 py-8">
+    <a
+      routerLink="/products"
+      class="card shadow-xl hover:shadow-2xl transition-all duration-300 h-fit w-fit rounded-md border-2 border-accent-content/10"
+    >
+      <figure class="">
+        <img src="/assets/example.jpeg" alt="a" class="object-cover" />
+      </figure>
+      <div class="card-body items-center text-center bg-accent/10">
+        <h2 class="card-title capitalize tracking-wider">{{ item.id }}</h2>
+        <div class="">12 dolar</div>
+      </div>
+    </a>
+  </div>
+  } } @else if(isLoading$ | async) {
+  <div class="my-20 text-center">
+    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat rem,
+    deserunt libero officia atque expedita explicabo. Nobis voluptas
+    accusantium, doloribus id debitis veniam rem fugit sint rerum impedit
+    inventore natus eum consectetur ab earum facilis aut veritatis recusandae
+    distinctio magni animi deleniti aspernatur ut! Cumque, autem voluptatem qui
+    blanditiis quod aperiam odio cupiditate incidunt facilis. Molestiae
+    quibusdam dolores corrupti, rem obcaecati minus provident. Voluptatem,
+    veniam labore dicta perspiciatis dolore vero cum ducimus ipsa distinctio
+    repellendus optio culpa? Debitis quibusdam laborum nobis voluptatibus
+    exercitationem? Animi quod aspernatur, veritatis similique corrupti adipisci
+    voluptatum maiores quis quia deserunt. Libero, laboriosam eaque mollitia
+    nihil soluta explicabo ducimus ab, numquam, consequatur adipisci nostrum
+    iure aliquid sapiente iusto! Commodi velit rem iste deserunt mollitia fugiat
+    necessitatibus cumque sed.
+  </div>
+  }@else {
+  <div class="my-20 text-center">
+    <eCommerce-errorMessage />
+  </div>
+  }
+</section>

@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { selectCurrentUser } from '../../../auth/store/reducers';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-header',
+  selector: 'eCommerce-header',
   standalone: true,
-  imports: [RouterLink],
+  imports: [RouterLink, CommonModule],
   templateUrl: './header.component.html',
-  styleUrl: './header.component.css',
 })
-export class HeaderComponent {}
+export class HeaderComponent {
+  currentUser$ = this.store.select(selectCurrentUser);
+
+  constructor(private store: Store) {}
+}
