@@ -2,6 +2,7 @@ const Product = require("../models/Product");
 const { StatusCodes } = require("http-status-codes");
 const CustomError = require("../errors");
 const path = require("path");
+const { log } = require("console");
 
 const createProduct = async (req, res) => {
   req.body.user = req.user.userId;
@@ -10,9 +11,41 @@ const createProduct = async (req, res) => {
 };
 
 const getAllProducts = async (req, res) => {
-  const products = await Product.find({});
+  const { search, featured, company, category, name, sort } = req.query;
 
-  res.status(StatusCodes.OK).json({ products, count: products.length });
+  const queryObject = {};
+
+  if (featured) {
+    queryObject.featured = featured === "true" ? true : false;
+  }
+
+  if (company) {
+    queryObject.company = company;
+  }
+
+  if (search) {
+    queryObject.$or = [
+      { name: { $regex: search, $options: "i" } },
+      { company: { $regex: search, $options: "i" } },
+    ];
+  }
+
+  if (category && category !== "all") {
+    queryObject.category = category;
+  }
+
+  const sortOptions = {
+    newest: "-createdAt",
+    oldest: "createdAt",
+    "a-z": "name",
+    "z-a": "-name",
+  };
+
+  const sortKey = sortOptions[sort] || sortOptions.newest;
+
+  const products = await Product.find(queryObject).sort(sortKey);
+
+  res.status(StatusCodes.OK).json({ count: products.length, products });
 };
 
 const getSingleProduct = async (req, res) => {
