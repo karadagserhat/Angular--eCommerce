@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
 import { HeaderComponent } from '../../../shared/components/header/header.component';
-import { RouterOutlet } from '@angular/router';
+import { Router, RouterLink, RouterOutlet } from '@angular/router';
 
 @Component({
   selector: 'eCommerce-searchContainer',
   standalone: true,
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, RouterLink],
   templateUrl: './searchContainer.component.html',
 })
-export class SearchContainer {}
+export class SearchContainer {
+  constructor(private router: Router) {}
+
+  hey() {
+    this.router.navigateByUrl(`/products`);
+  }
+}

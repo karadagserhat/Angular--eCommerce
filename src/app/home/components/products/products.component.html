@@ -6,43 +6,12 @@
   </div>
 
   <div class="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-    <a
-      key="{product.id}"
-      class="card w-full shadow-xl hover:shadow-2xl transition duration-300"
-    >
-      <figure class="px-4 pt-4">
-        <img
-          src="/assets/example.jpeg"
-          alt="title"
-          class="rounded-md h-64 md:h-48 w-full object-cover"
-        />
-      </figure>
-      <div class="card-body items-center text-center">
-        <h2 class="card-title capitalize tracking-wider">title</h2>
-        <span class="text-secondary">12 dolar</span>
-      </div>
-    </a>
+    @if (products$ | async; as products) { @for (item of products.products;
+    track item.name) {
     <!--  -->
     <a
-      key="{product.id}"
       class="card w-full shadow-xl hover:shadow-2xl transition duration-300"
-    >
-      <figure class="px-4 pt-4">
-        <img
-          src="/assets/example.jpeg"
-          alt="title"
-          class="rounded-md h-64 md:h-48 w-full object-cover"
-        />
-      </figure>
-      <div class="card-body items-center text-center">
-        <h2 class="card-title capitalize tracking-wider">title</h2>
-        <span class="text-secondary">12 dolar</span>
-      </div>
-    </a>
-    <!--  -->
-    <a
-      key="{product.id}"
-      class="card w-full shadow-xl hover:shadow-2xl transition duration-300"
+      [routerLink]="['/products', item._id]"
     >
       <figure class="px-4 pt-4">
         <img
@@ -52,9 +21,10 @@
         />
       </figure>
       <div class="card-body items-center text-center">
-        <h2 class="card-title capitalize tracking-wider">title</h2>
+        <h2 class="card-title capitalize tracking-wider">{{ item.name }}</h2>
         <span class="text-secondary">12 dolar</span>
       </div>
     </a>
+    } }
   </div>
 </div>

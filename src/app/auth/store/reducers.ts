@@ -63,6 +63,12 @@ const authFeature = createFeature({
       currentUser: null, // unauthorized
     })),
 
+    on(authActions.logout, (state) => ({
+      ...state,
+      ...initialState,
+      currentUser: null,
+    })),
+
     // Router Action (başka sayfaya gidildiğinde validationErrors sıfırlansın isteriz.)
     on(routerNavigatedAction, (state) => ({ ...state, validationErrors: null }))
   ),

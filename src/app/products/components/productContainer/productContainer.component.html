@@ -1,48 +1,78 @@
 <section class="align-element">
-  @if (products$ | async; as products) { @for (item of products.products; track
-  item.name) {
-  {{ item.name }}
-
   <div
     class="flex justify-between items-center mt-8 border-b border-base-300 pb-5"
   >
-    <h4 class="font-medium text-md">22 pro totals</h4>
+    <h4 class="font-medium text-md">total</h4>
     <div class="flex gap-x-2">
-      <button>icon</button>
+      <button type="button" (click)="setGrid()">
+        <!--grid icon  -->
+        <svg
+          width="1.3em"
+          height="1.3em"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M6.75 3C3.88235 3 3 3.88235 3 6.75C3 9.61765 3.88235 10.5 6.75 10.5C9.61765 10.5 10.5 9.61765 10.5 6.75C10.5 3.88235 9.61765 3 6.75 3Z"
+            stroke="#000000"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M6.75 13.5C3.88235 13.5 3 14.3824 3 17.25C3 20.1176 3.88235 21 6.75 21C9.61765 21 10.5 20.1176 10.5 17.25C10.5 14.3824 9.61765 13.5 6.75 13.5Z"
+            stroke="#000000"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M17.25 13.5C14.3824 13.5 13.5 14.3824 13.5 17.25C13.5 20.1176 14.3824 21 17.25 21C20.1176 21 21 20.1176 21 17.25C21 14.3824 20.1176 13.5 17.25 13.5Z"
+            stroke="#000000"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+          <path
+            d="M17.25 3C14.3824 3 13.5 3.88235 13.5 6.75C13.5 9.61765 14.3824 10.5 17.25 10.5C20.1176 10.5 21 9.61765 21 6.75C21 3.88235 20.1176 3 17.25 3Z"
+            stroke="#000000"
+            stroke-width="1.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          />
+        </svg>
+      </button>
+      <button type="button" (click)="setList()">
+        <!-- list icon -->
+        <svg
+          fill="currentColor"
+          width="1.3em"
+          height="1.3em"
+          viewBox="0 0 1000 1000"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            d="M582 707H166v83h416v-83zm250-333H166v83h666v-83zM166 624h666v-83H166v83zm0-416v83h666v-83H166z"
+          />
+        </svg>
+      </button>
     </div>
   </div>
-
-  <!-- GRID CONTAINER  -->
-  <div class="grid grid-cols-2 md:grid-cols-4 py-8">
-    <a
-      routerLink="/products"
-      class="card shadow-xl hover:shadow-2xl transition-all duration-300 h-fit w-fit rounded-md border-2 border-accent-content/10"
-    >
-      <figure class="">
-        <img src="/assets/example.jpeg" alt="a" class="object-cover" />
-      </figure>
-      <div class="card-body items-center text-center bg-accent/10">
-        <h2 class="card-title capitalize tracking-wider">{{ item.id }}</h2>
-        <div class="">12 dolar</div>
-      </div>
-    </a>
+  <!-- {/* PRODUCTS */} -->
+  @if (products$ | async; as products) { @for (item of products.products; track
+  item.name) {
+  {{ item.id }}
+  <div>
+    @if(layout() === "grid") {
+    <eCommerce-productsGrid [id]="item.id" />
+    } @else {
+    <eCommerce-productsList />
+    }
   </div>
   } } @else if(isLoading$ | async) {
   <div class="my-20 text-center">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat rem,
-    deserunt libero officia atque expedita explicabo. Nobis voluptas
-    accusantium, doloribus id debitis veniam rem fugit sint rerum impedit
-    inventore natus eum consectetur ab earum facilis aut veritatis recusandae
-    distinctio magni animi deleniti aspernatur ut! Cumque, autem voluptatem qui
-    blanditiis quod aperiam odio cupiditate incidunt facilis. Molestiae
-    quibusdam dolores corrupti, rem obcaecati minus provident. Voluptatem,
-    veniam labore dicta perspiciatis dolore vero cum ducimus ipsa distinctio
-    repellendus optio culpa? Debitis quibusdam laborum nobis voluptatibus
-    exercitationem? Animi quod aspernatur, veritatis similique corrupti adipisci
-    voluptatum maiores quis quia deserunt. Libero, laboriosam eaque mollitia
-    nihil soluta explicabo ducimus ab, numquam, consequatur adipisci nostrum
-    iure aliquid sapiente iusto! Commodi velit rem iste deserunt mollitia fugiat
-    necessitatibus cumque sed.
+    <eCommerce-loading />
   </div>
   }@else {
   <div class="my-20 text-center">

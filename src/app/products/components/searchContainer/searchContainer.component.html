@@ -91,14 +91,14 @@
     </div>
 
     <!-- BUTTONS  -->
-    <button
-      type="submit"
+    <a
+      routerLink="/products"
       class="btn border-0 bg-accent/70 hover:bg-accent/90 btn-sm capitalize text-accent-content"
     >
       search
-    </button>
+    </a>
     <a
-      to="/products"
+      (click)="hey()"
       class="btn border-0 bg-secondary/50 hover:bg-secondary/70 btn-sm capitalize text-secondary-content"
     >
       reset

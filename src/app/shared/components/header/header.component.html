@@ -4,6 +4,7 @@
       @if (currentUser$ | async; as currentUser) {
       <div class="text-xs sm:text-sm">Welcome, {{ currentUser.email }}</div>
       <button
+        (click)="logout()"
         class="btn btn-xs btn-outline text-accent-content border-accent-content"
       >
         logout

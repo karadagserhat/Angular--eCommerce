@@ -1,22 +1,9 @@
 import { Routes } from '@angular/router';
-import { HomeComponent } from './home/components/home/home.component';
-import { ProductsComponent } from './products/components/products/products.component';
-import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
 import { CartComponent } from './cart/cart.component';
 import { CheckoutComponent } from './checkout/checkout.component';
 
 export const routes: Routes = [
-  {
-    path: 'cart',
-    component: CartComponent,
-    title: 'Cart | Hyper Company',
-  },
-  {
-    path: 'checkout',
-    component: CheckoutComponent,
-    title: 'Checkout | Hyper Company',
-  },
-
   {
     path: 'register',
     loadChildren: () =>
@@ -35,15 +22,14 @@ export const routes: Routes = [
     loadChildren: () =>
       import('./products/products.routes').then((m) => m.routes),
   },
-
-  // {
-  //   path: '',
-  //   redirectTo: '/home',
-  //   pathMatch: 'full',
-  // },
+  {
+    path: 'products/:id',
+    loadChildren: () =>
+      import('./singleProduct/singleProduct.routes').then((m) => m.routes),
+  },
   {
     path: '**',
-    component: PageNotFoundComponent,
-    title: 'Hyper | Page Not Found',
+    loadChildren: () =>
+      import('./page-not-found/page-not-found.routes').then((m) => m.routes),
   },
 ];

@@ -2,13 +2,46 @@
   <div class="navbar px-12">
     <div class="navbar-start">
       <!-- LOGO -->
-
-      <a routerLink="/" class="flex items-center">
+      <a routerLink="/" class="hidden lg:flex items-center">
         <img src="assets/logo.png" alt="Hyper" class="h-12 w-12" />
         <span class="text-2xl font-extrabold font-sans text-accent-content"
           >HYPER</span
         >
       </a>
+      <!-- DROPDOWN  -->
+      <div class="dropdown">
+        <label tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+          <!-- icon -->
+          <svg
+            width="2em"
+            height="2em"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            style="font-weight: 600"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              opacity="0.5"
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M2.25 6C2.25 5.58579 2.58579 5.25 3 5.25H20C20.4142 5.25 20.75 5.58579 20.75 6C20.75 6.41421 20.4142 6.75 20 6.75H3C2.58579 6.75 2.25 6.41421 2.25 6ZM2.25 11C2.25 10.5858 2.58579 10.25 3 10.25H20C20.4142 10.25 20.75 10.5858 20.75 11C20.75 11.4142 20.4142 11.75 20 11.75H3C2.58579 11.75 2.25 11.4142 2.25 11ZM2.25 16C2.25 15.5858 2.58579 15.25 3 15.25H10C10.4142 15.25 10.75 15.5858 10.75 16C10.75 16.4142 10.4142 16.75 10 16.75H3C2.58579 16.75 2.25 16.4142 2.25 16Z"
+            />
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M17.0119 18.5695C17.2928 18.8102 17.7072 18.8102 17.9881 18.5695L21.4881 15.5695C21.8026 15.2999 21.839 14.8264 21.5695 14.5119C21.2999 14.1974 20.8264 14.161 20.5119 14.4306L17.5 17.0122L14.4881 14.4306C14.1736 14.161 13.7001 14.1974 13.4306 14.5119C13.161 14.8264 13.1974 15.2999 13.5119 15.5695L17.0119 18.5695Z"
+            />
+          </svg>
+        </label>
+        <ul
+          tabindex="0"
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li><a routerLink="/">Home</a></li>
+          <li><a routerLink="/products">Products</a></li>
+          <li><a routerLink="/cart">Cart</a></li>
+        </ul>
+      </div>
     </div>
 
     <div class="navbar-center hidden lg:flex">
@@ -45,7 +78,35 @@
     </div>
 
     <div class="navbar-end">
-      <div>gece</div>
+      <!-- theme -->
+      <label class="swap swap-rotate btn btn-ghost btn-circle">
+        <!-- this hidden checkbox controls the state -->
+        <input type="checkbox" (change)="handleTheme()" />
+
+        <!-- sun icon -->
+        <svg
+          class="swap-on fill-current w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M5.64,17l-.71.71a1,1,0,0,0,0,1.41,1,1,0,0,0,1.41,0l.71-.71A1,1,0,0,0,5.64,17ZM5,12a1,1,0,0,0-1-1H3a1,1,0,0,0,0,2H4A1,1,0,0,0,5,12Zm7-7a1,1,0,0,0,1-1V3a1,1,0,0,0-2,0V4A1,1,0,0,0,12,5ZM5.64,7.05a1,1,0,0,0,.7.29,1,1,0,0,0,.71-.29,1,1,0,0,0,0-1.41l-.71-.71A1,1,0,0,0,4.93,6.34Zm12,.29a1,1,0,0,0,.7-.29l.71-.71a1,1,0,1,0-1.41-1.41L17,5.64a1,1,0,0,0,0,1.41A1,1,0,0,0,17.66,7.34ZM21,11H20a1,1,0,0,0,0,2h1a1,1,0,0,0,0-2Zm-9,8a1,1,0,0,0-1,1v1a1,1,0,0,0,2,0V20A1,1,0,0,0,12,19ZM18.36,17A1,1,0,0,0,17,18.36l.71.71a1,1,0,0,0,1.41,0,1,1,0,0,0,0-1.41ZM12,6.5A5.5,5.5,0,1,0,17.5,12,5.51,5.51,0,0,0,12,6.5Zm0,9A3.5,3.5,0,1,1,15.5,12,3.5,3.5,0,0,1,12,15.5Z"
+          />
+        </svg>
+
+        <!-- moon icon -->
+        <svg
+          class="swap-off fill-current w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 24 24"
+        >
+          <path
+            d="M21.64,13a1,1,0,0,0-1.05-.14,8.05,8.05,0,0,1-3.37.73A8.15,8.15,0,0,1,9.08,5.49a8.59,8.59,0,0,1,.25-2A1,1,0,0,0,8,2.36,10.14,10.14,0,1,0,22,14.05,1,1,0,0,0,21.64,13Zm-9.5,6.69A8.14,8.14,0,0,1,7.08,5.22v.27A10.15,10.15,0,0,0,17.22,15.63a9.79,9.79,0,0,0,2.1-.22A8.11,8.11,0,0,1,12.14,19.73Z"
+          />
+        </svg>
+      </label>
+
+      <!-- cart -->
       <a routerLink="/cart" class="btn btn-ghost btn-circle ml-4">
         <div class="indicator">
           <svg
@@ -67,6 +128,45 @@
           >
         </div>
       </a>
+
+      @if(currentUser$ | async; as currentUser) {
+
+      <!-- profile -->
+      <div class="dropdown dropdown-bottom dropdown-end">
+        <label tabindex="0" role="button" class="btn btn-ghost">
+          <!-- profile icon -->
+          <svg
+            width="1.3em"
+            fill="currentColor"
+            height="1.3em"
+            viewBox="0 0 20 20"
+            version="1.1"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+          >
+            <g id="Page-1" stroke="none" stroke-width="1" fill-rule="evenodd">
+              <g
+                id="Dribbble-Light-Preview"
+                transform="translate(-140.000000, -2159.000000)"
+              >
+                <g id="icons" transform="translate(56.000000, 160.000000)">
+                  <path
+                    d="M100.562548,2016.99998 L87.4381713,2016.99998 C86.7317804,2016.99998 86.2101535,2016.30298 86.4765813,2015.66198 C87.7127655,2012.69798 90.6169306,2010.99998 93.9998492,2010.99998 C97.3837885,2010.99998 100.287954,2012.69798 101.524138,2015.66198 C101.790566,2016.30298 101.268939,2016.99998 100.562548,2016.99998 M89.9166645,2004.99998 C89.9166645,2002.79398 91.7489936,2000.99998 93.9998492,2000.99998 C96.2517256,2000.99998 98.0830339,2002.79398 98.0830339,2004.99998 C98.0830339,2007.20598 96.2517256,2008.99998 93.9998492,2008.99998 C91.7489936,2008.99998 89.9166645,2007.20598 89.9166645,2004.99998 M103.955674,2016.63598 C103.213556,2013.27698 100.892265,2010.79798 97.837022,2009.67298 C99.4560048,2008.39598 100.400241,2006.33098 100.053171,2004.06998 C99.6509769,2001.44698 97.4235996,1999.34798 94.7348224,1999.04198 C91.0232075,1998.61898 87.8750721,2001.44898 87.8750721,2004.99998 C87.8750721,2006.88998 88.7692896,2008.57398 90.1636971,2009.67298 C87.1074334,2010.79798 84.7871636,2013.27698 84.044024,2016.63598 C83.7745338,2017.85698 84.7789973,2018.99998 86.0539717,2018.99998 L101.945727,2018.99998 C103.221722,2018.99998 104.226185,2017.85698 103.955674,2016.63598"
+                    id="profile_round-[#1342]"
+                  ></path>
+                </g>
+              </g>
+            </g>
+          </svg>
+        </label>
+        <ul
+          tabindex="0"
+          class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+        >
+          <li><a routerLink="/profile">Profile</a></li>
+        </ul>
+      </div>
+      }
     </div>
   </div>
 </nav>

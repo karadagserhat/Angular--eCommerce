@@ -10,12 +10,19 @@ import { provideHttpClient, withInterceptors } from '@angular/common/http';
 import { provideEffects } from '@ngrx/effects';
 import * as authEffects from '../app/auth/store/effects';
 import * as productsEffects from '../app/products/store/effects';
+import * as singleProductEffects from '../app/singleProduct/store/effects';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { authInterceptor } from './shared/services/authInterceptor';
 import { productsFeatureKey, productsReducer } from './products/store/reducers';
+import { SingleProductService } from './singleProduct/services/singleProduct.service';
+import {
+  singleProductFeatureKey,
+  singleProductReducer,
+} from './singleProduct/store/reducers';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    [SingleProductService],
     provideHttpClient(withInterceptors([authInterceptor])),
     provideRouter(routes),
     provideAnimations(),
@@ -25,7 +32,8 @@ export const appConfig: ApplicationConfig = {
     provideRouterStore(),
     provideState(authFeatureKey, authReducer),
     provideState(productsFeatureKey, productsReducer),
-    provideEffects(authEffects, productsEffects),
+    provideState(singleProductFeatureKey, singleProductReducer),
+    provideEffects(authEffects, productsEffects, singleProductEffects),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),
