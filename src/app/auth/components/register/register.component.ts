@@ -23,7 +23,6 @@ import { BackendErrorMessages } from '../../../shared/components/backendErrorMes
     BackendErrorMessages,
   ],
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css',
 })
 export class RegisterComponent {
   form = this.fb.nonNullable.group({
@@ -42,7 +41,7 @@ export class RegisterComponent {
 
   onSubmit() {
     const request: RegisterRequestInterface = this.form.getRawValue();
-
+    // this.authService.register(request).subscribe((res) => console.log(res)); for testing
     this.store.dispatch(authActions.register({ request }));
   }
 }

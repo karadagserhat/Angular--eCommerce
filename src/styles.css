@@ -10,6 +10,10 @@
   .active-auth {
     @apply bg-accent/30;
   }
+
+  .disabled-btn {
+    @apply disabled:bg-accent/60 disabled:hover:bg-accent/70 disabled:text-accent-content/60 disabled:hover:text-accent-content;
+  }
 }
 
 body {
@@ -33,4 +37,16 @@ h2 {
 img {
   display: block;
   width: 100%;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  pointer-events: all !important;
 }

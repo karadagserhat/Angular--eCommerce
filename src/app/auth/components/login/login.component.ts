@@ -23,7 +23,6 @@ import { LoginRequestInterface } from '../../types/loginRequest.interface';
     BackendErrorMessages,
   ],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.css',
 })
 export class LoginComponent {
   form = this.fb.nonNullable.group({

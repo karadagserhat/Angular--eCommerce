@@ -1,7 +1,4 @@
 import { Routes } from '@angular/router';
-import { PageNotFoundComponent } from './page-not-found/components/page-not-found/page-not-found.component';
-import { CartComponent } from './cart/cart.component';
-import { CheckoutComponent } from './checkout/checkout.component';
 
 export const routes: Routes = [
   {

@@ -54,8 +54,8 @@
     </div>
     <div class="mt-8">
       <button
-        class="btn bg-accent/80 hover:bg-accent/90 text-accent-content font-medium btn-block rounded-sm uppercase h-[64px] tracking-wide"
-        [disabled]="isSubmitting$ | async"
+        class="btn bg-accent/80 hover:bg-accent/90 text-accent-content font-medium btn-block rounded-sm uppercase h-[64px] tracking-wide disabled-btn"
+        [disabled]="form.invalid || (isSubmitting$ | async)"
       >
         Sign Up
       </button>
