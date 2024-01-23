@@ -44,30 +44,30 @@
       </div>
     </div>
 
-    <div class="navbar-center hidden lg:flex">
-      <ul class="menu menu-horizontal gap-8 font-normal">
+    <div class="navbar-center hidden lg:flex h-4">
+      <div class="menu menu-horizontal gap-8 font-normal">
         <a
-          class="btn btn-ghost font-medium"
+          class="btn btn-ghost btn-sm text-accent-content font-medium px-4"
           routerLink="/"
-          routerLinkActive="active"
+          routerLinkActive="active-navbar "
           [routerLinkActiveOptions]="{ exact: true }"
           >Home</a
         >
         <a
-          class="btn btn-ghost font-medium"
+          class="btn btn-ghost btn-sm text-accent-content font-medium px-4"
           routerLink="/products"
-          routerLinkActive="active"
+          routerLinkActive="active-navbar"
           [routerLinkActiveOptions]="{ exact: true }"
           >Products</a
         >
         <a
-          class="btn btn-ghost font-medium"
+          class="btn btn-ghost btn-sm text-accent-content font-medium px-4"
           routerLink="/cart"
-          routerLinkActive="active"
+          routerLinkActive="active-navbar"
           [routerLinkActiveOptions]="{ exact: true }"
           >Cart</a
         >
-      </ul>
+      </div>
     </div>
     <div class="navbar-end">
       <!-- theme -->
@@ -99,7 +99,7 @@
       </label>
 
       <!-- cart -->
-      <a routerLink="/cart" class="btn btn-ghost btn-circle ml-4">
+      <a routerLink="/cart" class="btn btn-ghost btn-circle">
         <div class="indicator">
           <svg
             stroke="currentColor"
@@ -128,9 +128,9 @@
         <label tabindex="0" role="button" class="btn btn-ghost">
           <!-- profile icon -->
           <svg
-            width="1.3em"
+            width="1.4em"
             fill="currentColor"
-            height="1.3em"
+            height="1.4em"
             viewBox="0 0 20 20"
             version="1.1"
             xmlns="http://www.w3.org/2000/svg"
@@ -155,7 +155,11 @@
           tabindex="0"
           class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
         >
+          @if(currentUser.role === "admin") {
+          <li><a routerLink="/profile">Dashboard</a></li>
+          } @else {
           <li><a routerLink="/profile">Profile</a></li>
+          }
         </ul>
       </div>
       }

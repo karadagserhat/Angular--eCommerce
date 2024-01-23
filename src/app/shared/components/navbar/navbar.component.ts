@@ -14,7 +14,6 @@ const themes = {
   standalone: true,
   imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './navbar.component.html',
-  styleUrl: './navbar.component.css',
 })
 export class NavbarComponent {
   store = inject(Store);

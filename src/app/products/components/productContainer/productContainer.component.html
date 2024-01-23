@@ -1,8 +1,12 @@
 <section class="align-element">
+  <!-- {/* PRODUCTS */} -->
+  @if (products$ | async; as products) {
   <div
     class="flex justify-between items-center mt-8 border-b border-base-300 pb-5"
   >
-    <h4 class="font-medium text-md">total</h4>
+    <h4 class="font-medium text-base ml-2">
+      {{ products.products.length }} products
+    </h4>
     <div class="flex gap-x-2">
       <button type="button" (click)="setGrid()">
         <!--grid icon  -->
@@ -59,18 +63,34 @@
       </button>
     </div>
   </div>
-  <!-- {/* PRODUCTS */} -->
-  @if (products$ | async; as products) { @for (item of products.products; track
-  item.name) {
-  {{ item.id }}
-  <div>
+
+  <div class="mb-12">
     @if(layout() === "grid") {
-    <eCommerce-productsGrid [id]="item.id" />
+    <div class="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+      @for (item of products.products; track item.name) {
+      <eCommerce-productsGrid
+        [name]="item.name"
+        [price]="item.price"
+        [img]="item.image"
+        [id]="item.id"
+      />
+      }
+    </div>
     } @else {
-    <eCommerce-productsList />
+    <div class="mt-12 grid gap-y-8">
+      @for (item of products.products; track item.name) {
+      <eCommerce-productsList
+        [name]="item.name"
+        [price]="item.price"
+        [company]="item.company"
+        [img]="item.image"
+        [id]="item.id"
+      />
+      }
+    </div>
     }
   </div>
-  } } @else if(isLoading$ | async) {
+  } @else if(isLoading$ | async) {
   <div class="my-20 text-center">
     <eCommerce-loading />
   </div>

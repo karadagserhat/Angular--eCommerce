@@ -1,5 +1,4 @@
 @if (singleProduct$ | async; as product) {
-{{ product.id }}
 
 <section class="align-element py-10">
   <!-- breadcrumbs -->
@@ -18,7 +17,8 @@
   <div class="mt-6 grid gap-y-8 lg:grid-cols-2 lg:gap-x-16">
     <!--  IMAGE -->
     <img
-      src="/assets/example.jpeg"
+      crossorigin="anonymous"
+      src="{{ product.image }}"
       alt="{title}"
       class="w-96 h-96 object-cover rounded-lg lg:w-full"
     />
@@ -26,20 +26,22 @@
     <!--  PRODUCT -->
     <div>
       <h1 class="capitalize text-3xl font-bold">{{ product.name }}</h1>
-      <h4 class="text-xl text-neutral-content font-bold mt-2">ccccccc</h4>
-      <p class="mt-3 text-xl">12</p>
-      <p class="mt-6 leading-8">dsadsa</p>
+      <h4 class="text-xl text-neutral-content font-bold mt-2 capitalize">
+        {{ product.company }}
+      </h4>
+      <p class="mt-3 text-xl">{{ product.price | currency : "EUR" : "" }} €</p>
+      <p class="mt-6 leading-8">{{ product.description }}</p>
 
       <!--  COLORS -->
-      <div class="mt-6">
+      <!-- <div class="mt-6">
         <h4 class="text-md font-medium tracking-wider capitalize">colors</h4>
         <div class="mt-2">
           <button key="{color}" type="button" class=""></button>
         </div>
-      </div>
+      </div> -->
 
       <!--  AMOUNT -->
-      <div class="form-control w-full max-w-xs">
+      <!-- <div class="form-control w-full max-w-xs">
         <label class="label" htmlFor="amount">
           <h4 class="text-md font-medium -tracking-wider capitalize">amount</h4>
         </label>
@@ -51,7 +53,7 @@
         >
           312321
         </select>
-      </div>
+      </div> -->
 
       <!--  CART BTN -->
       <div class="mt-10">

@@ -11,11 +11,18 @@
     @apply bg-accent/30;
   }
 
+  .active-navbar {
+    @apply bg-accent;
+  }
+
   .disabled-btn {
     @apply disabled:bg-accent/60 disabled:hover:bg-accent/70 disabled:text-accent-content/60 disabled:hover:text-accent-content;
   }
-}
 
+  .navbar-btn {
+    @apply btn btn-ghost btn-sm text-accent-content font-medium px-4;
+  }
+}
 body {
   font-family: "Josefin Sans", sans-serif;
   box-sizing: border-box;

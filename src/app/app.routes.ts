@@ -25,6 +25,10 @@ export const routes: Routes = [
       import('./singleProduct/singleProduct.routes').then((m) => m.routes),
   },
   {
+    path: 'cart',
+    loadChildren: () => import('./cart/cart.routes').then((m) => m.routes),
+  },
+  {
     path: '**',
     loadChildren: () =>
       import('./page-not-found/page-not-found.routes').then((m) => m.routes),

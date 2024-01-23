@@ -1,7 +1,20 @@
+@if (((currentUser$ |async) === null) ) {
 <header class="bg-accent py-2 text-accent-content">
   <div class="px-12 flex justify-center sm:justify-end">
     <div class="flex gap-x-6 justify-center items-center">
-      @if (currentUser$ | async; as currentUser) {
+      <a class="link link-hover text-xs sm:text-sm" routerLink="/login">
+        Sign in / Guest</a
+      >
+      <a class="link link-hover text-xs sm:text-sm" routerLink="/register">
+        Create Account
+      </a>
+    </div>
+  </div>
+</header>
+} @if (currentUser$ | async; as currentUser ) {
+<header class="bg-accent py-2 text-accent-content">
+  <div class="px-12 flex justify-center sm:justify-end">
+    <div class="flex gap-x-6 justify-center items-center">
       <div class="text-xs sm:text-sm">Welcome, {{ currentUser.email }}</div>
       <button
         (click)="logout()"
@@ -9,14 +22,7 @@
       >
         logout
       </button>
-      } @else {
-      <a class="link link-hover text-xs sm:text-sm" routerLink="/login">
-        Sign in / Guest</a
-      >
-      <a class="link link-hover text-xs sm:text-sm" routerLink="/register">
-        Create Account
-      </a>
-      }
     </div>
   </div>
 </header>
+}

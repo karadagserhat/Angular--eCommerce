@@ -23,6 +23,8 @@ const productsFeature = createFeature({
       ...state,
       isLoading: false,
     })),
+
+    // jumping between pages, eski state'i değil, güncel state'i görmen için resetle.
     on(routerNavigatedAction, () => initialState)
   ),
 });

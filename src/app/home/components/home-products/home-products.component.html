@@ -1,0 +1,35 @@
+<div class="bg-accent/40 p-32 py-32">
+  <div class="border-b border-base-content pb-5">
+    <h2 class="text-3xl font-medium tracking-wider capitalize">
+      Bestseller Products
+    </h2>
+  </div>
+
+  <div class="pt-12 grid gap-[7rem] md:grid-cols-2 lg:grid-cols-3">
+    @if(products$ | async ; as products) { @for (item of
+    products.products.slice(0,2); track item.name) {
+    <!--  -->
+    <a
+      class="card w-full shadow-xl hover:shadow-2xl transition duration-300"
+      [routerLink]="['/products', item._id]"
+    >
+      <figure class="">
+        <img
+          crossorigin="anonymous"
+          src="{{ item.image }}"
+          alt="title"
+          class="rounded-xl h-64 md:h-48 w-full object-cover"
+        />
+      </figure>
+      <div class="card-body items-center text-center text-base-content">
+        <h2 class="card-title capitalize tracking-wider text-[1rem]">
+          {{ item.name }}
+        </h2>
+        <span class="text-secondary"
+          >{{ item.price | currency : "EUR" : "" }} €
+        </span>
+      </div>
+    </a>
+    } }
+  </div>
+</div>

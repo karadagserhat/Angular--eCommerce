@@ -13,7 +13,6 @@ import { ErrorMessageComponent } from '../../../shared/components/errorMessage/e
 import { LoadingComponent } from '../../../shared/components/loading/loading.component';
 import { ProductsGrid } from '../productsGrid/productsGrid.component';
 import { ProductsList } from '../productsList/productsList.component';
-import { map } from 'rxjs';
 
 @Component({
   selector: 'eCommerce-productContainer',
@@ -30,8 +29,6 @@ import { map } from 'rxjs';
   templateUrl: './productContainer.component.html',
 })
 export class ProductContainer implements OnInit {
-  @Input() apiUrl: string = '';
-
   isLoading$ = this.store.select(selectIsLoading);
   error$ = this.store.select(selectError);
   products$ = this.store.select(selectProductsData);
@@ -39,7 +36,7 @@ export class ProductContainer implements OnInit {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.store.dispatch(productsActions.getProducts({ url: this.apiUrl }));
+    this.store.dispatch(productsActions.getProducts({ url: '/products' }));
   }
 
   // Grid - List Layout
