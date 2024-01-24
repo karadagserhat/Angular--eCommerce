@@ -19,7 +19,7 @@ const getAllProducts = async (req, res) => {
     queryObject.featured = featured === "true" ? true : false;
   }
 
-  if (company) {
+  if (company && company !== "all") {
     queryObject.company = company;
   }
 
@@ -41,7 +41,7 @@ const getAllProducts = async (req, res) => {
     "z-a": "-name",
   };
 
-  const sortKey = sortOptions[sort] || sortOptions.newest;
+  const sortKey = sortOptions[sort] || sortOptions["a-z"];
 
   const products = await Product.find(queryObject).sort(sortKey);
 
