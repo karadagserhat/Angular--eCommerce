@@ -10,11 +10,18 @@ import {
 import { productsActions } from '../../../products/store/actions';
 import { LoadingComponent } from '../../../shared/components/loading/loading.component';
 import { ErrorMessageComponent } from '../../../shared/components/errorMessage/errorMessage.component';
+import { FormatPricePipe } from '../../../shared/pipes/formatPrice.pipe';
 
 @Component({
   selector: 'eCommerce-products',
   standalone: true,
-  imports: [RouterLink, CommonModule, LoadingComponent, ErrorMessageComponent],
+  imports: [
+    RouterLink,
+    CommonModule,
+    LoadingComponent,
+    ErrorMessageComponent,
+    FormatPricePipe,
+  ],
   templateUrl: './home-products.component.html',
 })
 export class ProductsComponent {

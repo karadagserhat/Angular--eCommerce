@@ -3,6 +3,7 @@ import { RouterLink, RouterLinkActive } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { selectCurrentUser } from '../../../auth/store/reducers';
 import { CommonModule } from '@angular/common';
+import { CartService } from '../../../cart/services/cart.service';
 
 const themes = {
   lemonade: 'lemonade',
@@ -15,11 +16,20 @@ const themes = {
   imports: [RouterLink, RouterLinkActive, CommonModule],
   templateUrl: './navbar.component.html',
 })
-export class NavbarComponent {
+export class NavbarComponent implements OnInit {
   store = inject(Store);
+  cartService = inject(CartService);
+  cartQuantity: number = 0;
+
   currentUser$ = this.store.select(selectCurrentUser);
 
   theme = signal<string>(this.getThemeFromLocalStorage());
+
+  ngOnInit(): void {
+    this.cartService.getCartObservable().subscribe((newCart) => {
+      this.cartQuantity = newCart.totalCount;
+    });
+  }
 
   getThemeFromLocalStorage() {
     return localStorage.getItem('theme') || themes.lemonade;

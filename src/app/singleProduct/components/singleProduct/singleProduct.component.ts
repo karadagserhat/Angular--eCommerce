@@ -1,5 +1,5 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { ActivatedRoute, Params, RouterLink } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { Store } from '@ngrx/store';
 import {
   selectError,
@@ -9,17 +9,23 @@ import {
 import { singleProductActions } from '../../store/actions';
 import { CommonModule } from '@angular/common';
 import { map } from 'rxjs';
+import { CartService } from '../../../cart/services/cart.service';
+import { Bookcase } from '../../../shared/models/Bookcase';
+import { FormatPricePipe } from '../../../shared/pipes/formatPrice.pipe';
 
 @Component({
   selector: 'eCommerce-singleProduct',
   standalone: true,
-  imports: [RouterLink, CommonModule],
+  imports: [RouterLink, CommonModule, FormatPricePipe],
   templateUrl: './singleProduct.component.html',
 })
 export class SingleProductComponent implements OnInit {
-  store = inject(Store);
-  route = inject(ActivatedRoute);
+  private store = inject(Store);
+  private route = inject(ActivatedRoute);
+  private router = inject(Router);
+  private cartService = inject(CartService);
 
+  bookcase!: Bookcase;
   id: string = '';
 
   isLoading$ = this.store.select(selectIsLoading);
@@ -33,9 +39,16 @@ export class SingleProductComponent implements OnInit {
       this.id = params['id'];
       this.fetchSingleProduct();
     });
+
+    this.singleProduct$.subscribe((res) => (this.bookcase = res));
   }
 
   fetchSingleProduct(): void {
     this.store.dispatch(singleProductActions.getSingleProduct({ id: this.id }));
+  }
+
+  addToCart() {
+    this.cartService.addToCart(this.bookcase);
+    this.router.navigateByUrl('/cart');
   }
 }

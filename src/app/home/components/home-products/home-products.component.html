@@ -17,17 +17,15 @@
         <img
           crossorigin="anonymous"
           src="{{ item.image }}"
-          alt="title"
+          alt="{{ item.name }}"
           class="rounded-xl h-64 md:h-48 w-full object-cover"
         />
       </figure>
       <div class="card-body items-center text-center text-base-content">
-        <h2 class="card-title capitalize tracking-wider text-[1rem]">
+        <h2 class="card-title capitalize tracking-wider text-[1rem] font-bold">
           {{ item.name }}
         </h2>
-        <span class="text-secondary"
-          >{{ item.price | currency : "EUR" : "" }} €
-        </span>
+        <span class="text-accent-content">{{ item.price | formatPrice }} </span>
       </div>
     </a>
     } }

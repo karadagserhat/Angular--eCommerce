@@ -5,7 +5,10 @@
     class="flex justify-between items-center mt-8 border-b border-base-300 pb-5"
   >
     <h4 class="font-medium text-base ml-2">
-      {{ products.products.length }} products
+      @if(products.products.length === 0) {There is no product!} @else {
+      {{ products.products.length }}
+      product{{ products.products.length === 1 ? "" : "s" }}
+      }
     </h4>
     <div class="flex gap-x-2">
       <button type="button" (click)="setGrid()">
@@ -65,7 +68,9 @@
   </div>
 
   <div class="mb-12">
-    @if(layout() === "grid") {
+    @if(products.products.length=== 0) {
+    <div class="mt-12 text-center">No products matched your search</div>
+    } @if(layout() === "grid") {
     <div class="pt-12 grid gap-4 md:grid-cols-2 lg:grid-cols-3">
       @for (item of products.products; track item.name) {
       <eCommerce-productsGrid

@@ -5,29 +5,32 @@
     </h2>
   </div>
 
+  @if(cart.items.length > 0) {
   <div class="mt-8 grid gap-8 lg:grid-cols-12">
+    <!-- <CartItemsList /> -->
     <div class="lg:col-span-8">
-      <!-- <CartItemsList /> -->
+      @for(cartItem of cart.items; track cartItem.name) {
       <article
-        key="{cartID}"
         class="mb-12 flex flex-col gap-y-4 sm:flex-row flex-wrap border-b border-base-300 pb-6 last:border-b-0"
       >
         <!-- {/* IMAGE */} -->
         <img
-          src="{image}"
-          alt="title"
+          crossorigin="anonymous"
+          src="{{ cartItem.image }}"
+          alt="{{ cartItem.name }}"
           class="h-24 w-24 rounded-lg sm:h-32 sm:w-32 object-cover"
         />
         <!-- {/* INFO */} -->
         <div class="sm:ml-16 sm:w-48">
           <!-- {/* TITLE */} -->
-          <h3 class="capitalize font-medium">title</h3>
+          <h3 class="capitalize font-bold">{{ cartItem.name }}</h3>
           <!-- {/* COMPANY */} -->
-          <h4 class="mt-2 capitalize text-sm text-neutral-content">comp</h4>
+          <h4 class="mt-2 capitalize text-sm text-base-content">
+            Company : {{ cartItem.company }}
+          </h4>
           <!-- {/* COLOR */} -->
           <p class="mt-4 text-sm capitalize flex items-center gap-x-2">
-            color :
-            <span class="badge badge-sm"></span>
+            Category : {{ cartItem.category }}
           </p>
         </div>
         <div class="sm:ml-12">
@@ -37,49 +40,57 @@
               <span class="label-text">Amount</span>
             </label>
             <select
-              name="amount"
-              id="amount"
-              class="mt-2 select select-base select-bordered select-xs"
-              value="{amount}"
-              onChange="{handleAmount}"
+              #quantitySelect
+              class="select select-base select-bordered select-sm select-accent"
+              [value]="cartItem.quantity"
+              (change)="changeQuantity(cartItem, quantitySelect.value)"
             >
-              123
+              <option selected value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
             </select>
           </div>
           <!-- {/* REMOVE */} -->
-          <button class="mt-2 link link-hover text-sm text-red-400">
+          <button
+            class="mt-2 ml-1 link link-hover text-sm text-red-400"
+            (click)="removeFromCart(cartItem)"
+          >
             remove
           </button>
         </div>
 
         <!-- {/* PRICE */} -->
-        <p class="font-medium sm:ml-auto">312321</p>
+        <p class="font-medium sm:ml-auto">
+          {{ cartItem.price | formatPrice }}
+        </p>
       </article>
+      }
     </div>
-
+    <!-- <CartTotals /> -->
     <div class="lg:col-span-4 lg:pl-4">
-      <!-- <CartTotals /> -->
       <div class="card bg-base-200">
         <div class="card-body">
           <!-- {/* SUBTOTAL */} -->
           <p class="flex justify-between text-xs border-b border-base-300 pb-2">
-            <span>Subtotal</span>
-            <span class="font-medium">767676</span>
+            <span>Subtotal </span>
+            <span class="font-medium"
+              >{{ cart.totalPrice | formatPrice }}
+            </span>
           </p>
           <!-- {/* SHIPPING */} -->
           <p class="flex justify-between text-xs border-b border-base-300 pb-2">
-            <span>Shipping</span>
-            <span class="font-medium">65465</span>
-          </p>
-          <!-- {/* Tax */} -->
-          <p class="flex justify-between text-xs border-b border-base-300 pb-2">
             <span>Tax</span>
-            <span class="font-medium">12</span>
+            <span class="font-medium">{{ cart.tax | formatPrice }} </span>
           </p>
+
           <!-- {/* Order Total */} -->
           <p class="flex justify-between text-sm mt-4 pb-2">
             <span>Order Total</span>
-            <span class="font-medium">43543543</span>
+            <span class="font-medium">{{
+              cart.totalPrice + cart.tax | formatPrice
+            }}</span>
           </p>
         </div>
       </div>
@@ -89,4 +100,10 @@
       </a>
     </div>
   </div>
+  } @else {
+  <div class="mt-12">
+    <div class="mb-5 ml-1">Empty Cart</div>
+    <button routerLink="/products" class="btn btn-accent">Get Shopping</button>
+  </div>
+  }
 </section>

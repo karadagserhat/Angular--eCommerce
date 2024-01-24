@@ -1,6 +1,6 @@
 <section class="align-element pt-20">
   <form
-    class="bg-base-300 rounded-md px-8 py-4 grid gap-x-4 gap-y-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 items-center"
+    class="bg-base-300 rounded-md px-8 py-4 grid gap-x-4 gap-y-10 sm:grid-cols-2 md:grid-cols-3 items-center"
   >
     <!-- SEARCH -->
     <div class="form-control">
@@ -11,94 +11,77 @@
         type="search"
         name="search"
         class="input input-bordered input-sm"
+        [(ngModel)]="search"
+        (keyup.enter)="enterKeyup(search)"
       />
     </div>
 
     <!-- CATEGORIES -->
     <div class="form-control">
       <label class="label">
-        <span class="label-text capitalize">select category</span>
+        <span class="label-text capitalize"> category</span>
       </label>
       <select
         name="category"
         id="category"
         class="select select-bordered select-sm"
+        [(ngModel)]="category"
       >
-        <option key="" value="">1</option>
-        <option key="" value="">2</option>
+        <option key="all" value="all">all</option>
+        <option key="wooden" value="wooden">wooden</option>
+        <option key="children" value="children">children</option>
+        <option key="glass" value="glass">glass</option>
+        <option key="decorative" value="decorative">decorative</option>
       </select>
     </div>
 
     <!--COMPANIES  -->
     <div class="form-control">
       <label class="label">
-        <span class="label-text capitalize">select company</span>
+        <span class="label-text capitalize"> company</span>
       </label>
       <select
-        name="category"
-        id="category"
+        name="company"
+        id="company"
         class="select select-bordered select-sm"
+        [(ngModel)]="company"
       >
-        <option key="" value="">1</option>
-        <option key="" value="">2</option>
+        <option key="all" value="all">all</option>
+        <option key="ikea" value="ikea">ikea</option>
+        <option key="tjena" value="tjena">tjena</option>
+        <option key="baggego" value="baggego">baggego</option>
+        <option key="portvakt" value="portvakt">portvakt</option>
       </select>
     </div>
 
     <!-- ORDER  -->
-    <div class="form-control">
+    <div class="form-control md:mt-[-2.3rem]">
       <label class="label">
         <span class="label-text capitalize">sort by</span>
       </label>
       <select
-        name="category"
-        id="category"
+        name="sort"
+        id="sort"
         class="select select-bordered select-sm"
+        [(ngModel)]="sort"
       >
-        <option key="" value="">1</option>
-        <option key="" value="">2</option>
+        <option key="a-z" value="a-z">a-z</option>
+        <option key="z-a" value="z-a">z-a</option>
+        <option key="newest" value="newest">newest</option>
+        <option key="oldest" value="oldest">oldest</option>
       </select>
-    </div>
-
-    <!-- PRICE  -->
-    <div class="form-control">
-      <label class="label cursor-pointer">
-        <span class="label-text capitalize">select price</span>
-        <span>123</span>
-      </label>
-      <input
-        type="range"
-        name="price"
-        min="{0}"
-        max="150"
-        class="range range-accent range-sm"
-      />
-      <div class="w-full flex justify-between text-xs px-2 mt-2 range-sm">
-        <span class="font-bold text-md">0</span>
-        <span class="font-bold text-md">Max : 1232</span>
-      </div>
-    </div>
-
-    <!-- SHIPPING  -->
-    <div class="form-control items-center lg:mb-[1rem]">
-      <label htmlFor="checkbox" class="label cursor-pointer">
-        <span class="label-text capitalize">free shipping</span>
-      </label>
-      <input
-        type="checkbox"
-        name="checkbox"
-        class="checkbox checkbox-accent border-2 border-accent checkbox-sm"
-      />
     </div>
 
     <!-- BUTTONS  -->
     <a
+      (click)="searchButton()"
       routerLink="/products"
       class="btn border-0 bg-accent/70 hover:bg-accent/90 btn-sm capitalize text-accent-content"
     >
       search
     </a>
     <a
-      (click)="hey()"
+      (click)="resetButton()"
       class="btn border-0 bg-secondary/50 hover:bg-secondary/70 btn-sm capitalize text-secondary-content"
     >
       reset

@@ -1,6 +1,6 @@
 <a
   (click)="navigateSingle()"
-  class="card w-full shadow-xl hover:shadow-2xl transition duration-300"
+  class="card w-full shadow-xl hover:shadow-2xl transition duration-300 cursor-pointer"
 >
   <figure class="px-4 pt-4">
     <img
@@ -14,6 +14,6 @@
     <h2 class="card-title capitalize tracking-wider text-[1rem]">
       {{ name }}
     </h2>
-    <span class=""> {{ price | currency : "EUR" : "" }} € </span>
+    <span class=""> {{ price | formatPrice }} </span>
   </div>
 </a>
