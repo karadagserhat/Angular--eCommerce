@@ -1,0 +1,59 @@
+@if(products$ | async; as products) {
+<div class="mt-12 align-element">
+  <div class="grid grid-cols-2 gap-12">
+    <div class="grid grid-cols-2 gap-6">
+      <div class="stats shadow">
+        <div class="stat">
+          <div class="stat-title">Total Page Views</div>
+          <div class="stat-value">{{ products.products.length }}</div>
+          <div class="stat-desc">21% more than last month</div>
+        </div>
+      </div>
+      <div class="stats shadow">
+        <div class="stat">
+          <div class="stat-title">Total Page Views</div>
+          <div class="stat-value">{{ products.products.length }}</div>
+          <div class="stat-desc">21% more than last month</div>
+        </div>
+      </div>
+    </div>
+
+    <!--  table -->
+
+    <div class="overflow-x-auto">
+      <table class="table table-sm table-zebra-zebra">
+        <thead class="">
+          <tr>
+            <th>Name</th>
+            <th>Company</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th class="">Details</th>
+          </tr>
+        </thead>
+        <tbody>
+          @for(product of products.products; track product.id) {
+          <tr class="capitalize" key="{id}">
+            <td>{{ product.name }}</td>
+            <td>{{ product.company }}</td>
+            <td>{{ product.category }}</td>
+            <td>{{ product.price | formatPrice }}</td>
+            <th class="">
+              <div class="flex gap-3">
+                <button
+                  routerLink="/admin/products"
+                  class="btn btn-xs btn-info"
+                >
+                  Details
+                </button>
+              </div>
+            </th>
+          </tr>
+          }
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+}

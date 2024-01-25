@@ -1,0 +1,8 @@
+<ng-container *ngIf="data$ | async as data">
+  <eCommerce-admin-form
+    [initialValues]="initialValues"
+    [isSubmitting]="data.isSubmitting"
+    [backendErrors]="data.backendErrors"
+    (adminSubmit)="onSubmit($event)"
+  />
+</ng-container>

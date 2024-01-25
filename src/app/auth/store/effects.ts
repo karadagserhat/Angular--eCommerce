@@ -122,7 +122,6 @@ export const redirectAfterLoginEffect = createEffect(
 );
 
 // LOGOUT
-
 export const logoutEffect = createEffect(
   (
     actions$ = inject(Actions),
@@ -138,4 +137,28 @@ export const logoutEffect = createEffect(
     );
   },
   { functional: true, dispatch: false }
+);
+
+// Update
+export const updateCurrentUserEffect = createEffect(
+  (actions$ = inject(Actions), authService = inject(AuthService)) => {
+    return actions$.pipe(
+      ofType(authActions.updateCurrentUser),
+      switchMap(({ currentUserReq }) => {
+        return authService.updateCurrentUser(currentUserReq).pipe(
+          map((currentUser: CurrentUserInterface) => {
+            return authActions.updateCurrentUserSuccess({ currentUser });
+          }),
+          catchError((errorResponse: HttpErrorResponse) => {
+            return of(
+              authActions.updateCurrentUserFailure({
+                errors: errorResponse.error.msg,
+              })
+            );
+          })
+        );
+      })
+    );
+  },
+  { functional: true }
 );

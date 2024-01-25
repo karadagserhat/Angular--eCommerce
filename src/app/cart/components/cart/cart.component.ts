@@ -22,8 +22,6 @@ export class CartComponent implements OnInit {
     this.cartService
       .getCartObservable()
       .subscribe((cart) => (this.cart = cart));
-
-    console.log(this.cart);
   }
 
   removeFromCart(cartItem: CartItem) {

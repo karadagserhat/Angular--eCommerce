@@ -1,0 +1,35 @@
+@if(data$ | async; as data) { @if(currentUser) {
+<form
+  [formGroup]="form"
+  (ngSubmit)="submit()"
+  class="max-w-[400px] w-full mx-auto mt-[6rem]"
+>
+  <div class="mt-[19px]">
+    <input
+      formControlName="email"
+      type="email"
+      name="email"
+      placeholder="Email address"
+      class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] outline-none text-2xl w-full bg-inherit"
+    />
+  </div>
+  <div class="mt-[19px]">
+    <input
+      formControlName="password"
+      type="password"
+      name="password"
+      placeholder=" password"
+      class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] outline-none text-2xl w-full bg-inherit bg-warning cursor-not-allowed"
+    />
+  </div>
+  <div class="mt-8">
+    <button
+      class="btn bg-accent/80 hover:bg-accent/90 text-accent-content font-medium btn-block rounded-sm uppercase h-[64px] tracking-wide disabled-btn"
+      type="submit"
+      [disabled]="form.invalid || data.isSubmitting"
+    >
+      Update Profile
+    </button>
+  </div>
+</form>
+} }

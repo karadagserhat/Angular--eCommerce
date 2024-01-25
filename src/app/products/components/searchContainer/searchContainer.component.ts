@@ -21,7 +21,7 @@ export class SearchContainer implements OnInit {
   max: number = 12.2;
 
   ngOnInit(): void {
-    this.sort = 'a-z';
+    this.sort = 'newest';
     this.category = 'all';
     this.company = 'all';
   }
@@ -43,7 +43,7 @@ export class SearchContainer implements OnInit {
     this.search = '';
     this.category = 'all';
     this.company = 'all';
-    this.sort = 'a-z';
+    this.sort = 'newest';
     this.store.dispatch(productsActions.getProducts({ url: '/products' }));
   }
 }

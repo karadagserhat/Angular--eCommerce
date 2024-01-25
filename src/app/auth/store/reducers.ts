@@ -63,6 +63,17 @@ const authFeature = createFeature({
       currentUser: null, // unauthorized
     })),
 
+    // update
+    on(authActions.updateCurrentUserSuccess, (state, action) => ({
+      ...state,
+      currentUser: action.currentUser,
+    })),
+    on(authActions.updateCurrentUserFailure, (state, action) => ({
+      ...state,
+      validationErrors: action.errors,
+    })),
+
+    // logout
     on(authActions.logout, (state) => ({
       ...state,
       ...initialState,

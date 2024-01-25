@@ -1,0 +1,61 @@
+@if(products$ | async; as products) {
+
+<div class="mt-8 align-element">
+  <div class="flex justify-between mt-12">
+    <h4 class="mb-4 capitalize">
+      total products : {{ products.products.length }}
+    </h4>
+    <button
+      routerLink="/admin/create-product"
+      class="btn btn-sm btn-accent mr-[6rem]"
+    >
+      Create Product
+    </button>
+  </div>
+  <div class="overflow-x-auto">
+    <table class="table table-sm table-zebra-zebra">
+      <thead class="">
+        <tr>
+          <th>Name</th>
+          <th>Company</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th class="hidden sm:block">Date</th>
+          <th class="">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        @for(product of products.products; track product.id) {
+        <tr class="capitalize" key="{id}">
+          <td>{{ product.name }}</td>
+          <td>{{ product.company }}</td>
+          <td>{{ product.category }}</td>
+          <td>{{ product.price | formatPrice }}</td>
+          <td class="hidden sm:block">{{ product.createdAt | date }}</td>
+          <th class="">
+            <div class="flex gap-3">
+              <button
+                [routerLink]="['/admin/update-product', product.id]"
+                class="btn btn-xs btn-warning"
+              >
+                Update
+              </button>
+              <button
+                class="btn btn-xs btn-error"
+                (click)="deleteButton(product.id)"
+              >
+                Delete
+              </button>
+            </div>
+          </th>
+        </tr>
+        }
+      </tbody>
+    </table>
+  </div>
+</div>
+}@else if(isLoading$ | async) {
+<div class="grid place-items-center mt-12">
+  <eCommerce-loading />
+</div>
+}

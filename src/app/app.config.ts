@@ -10,6 +10,7 @@ import { provideEffects } from '@ngrx/effects';
 import * as authEffects from '../app/auth/store/effects';
 import * as productsEffects from '../app/products/store/effects';
 import * as singleProductEffects from '../app/singleProduct/store/effects';
+import * as adminEffects from '../app/admin/store/effects';
 import { provideRouterStore, routerReducer } from '@ngrx/router-store';
 import { authInterceptor } from './shared/services/authInterceptor';
 import { productsFeatureKey, productsReducer } from './products/store/reducers';
@@ -18,10 +19,26 @@ import {
   singleProductFeatureKey,
   singleProductReducer,
 } from './singleProduct/store/reducers';
+import { DeleteProductService } from './admin/services/deleteProduct.service';
+import { CreateProductService } from './admin/services/createProduct.service';
+import {
+  createProductFeatureKey,
+  createProductReducer,
+} from './admin/store/reducers';
+import {
+  updateProductFeatureKey,
+  updateProductReducer,
+} from './admin/components/admin-update-product/store/reducers';
+import { UpdateProductService } from './admin/services/updateProduct.service';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    [SingleProductService],
+    [
+      SingleProductService,
+      DeleteProductService,
+      CreateProductService,
+      UpdateProductService,
+    ],
     provideHttpClient(withInterceptors([authInterceptor])),
     provideRouter(routes),
     provideAnimations(),
@@ -32,7 +49,14 @@ export const appConfig: ApplicationConfig = {
     provideState(authFeatureKey, authReducer),
     provideState(productsFeatureKey, productsReducer),
     provideState(singleProductFeatureKey, singleProductReducer),
-    provideEffects(authEffects, productsEffects, singleProductEffects),
+    provideState(createProductFeatureKey, createProductReducer),
+    provideState(updateProductFeatureKey, updateProductReducer),
+    provideEffects(
+      authEffects,
+      productsEffects,
+      singleProductEffects,
+      adminEffects
+    ),
     provideStoreDevtools({
       maxAge: 25,
       logOnly: !isDevMode(),

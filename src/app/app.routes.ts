@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { AdminGuard } from './auth/guards/admin.guard';
+import { UserGuard } from './auth/guards/user.guard';
 
 export const routes: Routes = [
   {
@@ -28,6 +30,36 @@ export const routes: Routes = [
     path: 'cart',
     loadChildren: () => import('./cart/cart.routes').then((m) => m.routes),
   },
+  {
+    path: 'profile',
+    loadChildren: () => import('./user/user.routes').then((m) => m.routes),
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'admin/dashboard',
+    loadChildren: () =>
+      import('./admin/admin.routes').then((m) => m.adminDashboardRoutes),
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/products',
+    loadChildren: () =>
+      import('./admin/admin.routes').then((m) => m.adminProductsRoutes),
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/create-product',
+    loadChildren: () =>
+      import('./admin/admin.routes').then((m) => m.adminCreateProductRoutes),
+    canActivate: [AdminGuard],
+  },
+  {
+    path: 'admin/update-product/:id',
+    loadChildren: () =>
+      import('./admin/admin.routes').then((m) => m.adminUpdateProductRoutes),
+    canActivate: [AdminGuard],
+  },
+
   {
     path: '**',
     loadChildren: () =>

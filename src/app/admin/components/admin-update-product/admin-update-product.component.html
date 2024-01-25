@@ -1,0 +1,13 @@
+@if(data$ | async; as data) {
+<eCommerce-admin-form
+  *ngIf="data.initialValues"
+  [initialValues]="data.initialValues"
+  [isSubmitting]="data.isSubmitting"
+  [backendErrors]="data.backendErrors"
+  (adminSubmit)="onSubmit($event)"
+/>
+} @else {
+<div class="grid place-items-center mt-[12rem]">
+  <eCommerce-loading />
+</div>
+}
