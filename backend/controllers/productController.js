@@ -41,7 +41,7 @@ const getAllProducts = async (req, res) => {
     "z-a": "-name",
   };
 
-  const sortKey = sortOptions[sort] || sortOptions["a-z"];
+  const sortKey = sortOptions[sort] || sortOptions.newest;
 
   const products = await Product.find(queryObject).sort(sortKey);
 
