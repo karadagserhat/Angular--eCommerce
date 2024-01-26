@@ -55,6 +55,7 @@ export class CartService {
   }
 
   getCart(): Cart {
+    // get latest value
     return this.cartSubject.value;
   }
 

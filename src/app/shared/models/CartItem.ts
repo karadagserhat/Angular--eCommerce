@@ -7,5 +7,6 @@ export class CartItem {
   company: string = this.bookcase?.company;
   image: string = this.bookcase?.image;
   price: number = this.bookcase?.price;
+  id: string = this.bookcase?.id;
   quantity: number = 1;
 }

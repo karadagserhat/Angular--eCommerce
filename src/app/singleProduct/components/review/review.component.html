@@ -1,0 +1,93 @@
+<!-- @for(review of product.reviews; track review.id) {
+{{ review.rating }}
+} -->
+
+<section>
+  <!-- title -->
+  <div class="grid grid-cols-2 gap-12 text-primary">
+    <div>
+      <div class="border-b border-base-content pb-2 w-full">
+        <h2 class="text-2xl font-medium tracking-wider capitalize">
+          Write Review
+        </h2>
+      </div>
+
+      @if(currentUser$ | async) {
+      <div class="text-accent-content">
+        <!-- rating -->
+        <div class="form-control mt-3">
+          <label class="label">
+            <span class="label-text capitalize"> rating</span>
+          </label>
+          <select
+            name="rating"
+            id="rating"
+            class="select select-bordered select-sm w-32"
+          >
+            <option key="all" value="all">select</option>
+            <option key="1" value="1">1</option>
+            <option key="2" value="2">2</option>
+            <option key="3" value="3">3</option>
+            <option key="4" value="4">4</option>
+            <option key="5" value="5">5</option>
+          </select>
+        </div>
+
+        <!-- comment -->
+        <div class="mt-[19px]">
+          <label class="label">
+            <span class="label-text capitalize"> Comment</span>
+          </label>
+          <textarea
+            type="text"
+            rows="4"
+            cols="50"
+            name="comment"
+            class="border-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[4.5rem] text-2xl w-full bg-inherit"
+          >
+          </textarea>
+        </div>
+
+        <!-- button -->
+        <button
+          class="btn bg-accent/80 hover:bg-accent/90 text-accent-content font-medium rounded-sm uppercase h-[64px] tracking-wide disabled-btn w-full mt-2"
+        >
+          Send
+        </button>
+      </div>
+      } @else {
+      <div class="mt-5 text-accent-content">
+        Please <a class="link text-secondary" routerLink="/login"> log in </a>
+        to write a review
+      </div>
+      }
+    </div>
+
+    <div>
+      <div class="border-b border-base-content pb-2 w-full">
+        <h2 class="text-2xl font-medium tracking-wider capitalize">Reviews</h2>
+      </div>
+      <div class="text-accent-content">
+        @if(!product.reviews.length) {
+        <div class="mt-5 ml-1">No reviews</div>
+        }@else { @for(review of reviews.reviews; track review.id) {
+        <div class="flex flex-col gap-2 mt-5">
+          <div>
+            {{ review.user.email }}
+          </div>
+          <div>
+            {{ review.rating }}
+          </div>
+          <div>
+            {{ review.createdAt | date }}
+          </div>
+          <div class="mt-7 text-primary">
+            {{ review.comment }}
+          </div>
+          <div class="border-b border-base-content pb-2 w-full"></div>
+        </div>
+        }}
+      </div>
+    </div>
+  </div>
+</section>

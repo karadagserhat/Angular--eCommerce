@@ -8,6 +8,7 @@ import { ProductsComponent } from '../home-products/home-products.component';
 import { StoryComponent } from '../home-story/story.component';
 import { TestimonialComponent } from '../home-testimonial/testimonial.component';
 import { CommonModule } from '@angular/common';
+import { ScrollToTopComponent } from '../scroll-to-top/scroll-to-top.component';
 
 @Component({
   selector: 'eCommerce-home',
@@ -23,6 +24,7 @@ import { CommonModule } from '@angular/common';
     RouterOutlet,
     RouterLink,
     CommonModule,
+    ScrollToTopComponent,
   ],
   templateUrl: './home.component.html',
 })

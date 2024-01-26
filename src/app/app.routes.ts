@@ -31,6 +31,17 @@ export const routes: Routes = [
     loadChildren: () => import('./cart/cart.routes').then((m) => m.routes),
   },
   {
+    path: 'checkout',
+    loadChildren: () =>
+      import('./checkout/checkout.routes').then((m) => m.routes),
+    canActivate: [UserGuard],
+  },
+  {
+    path: 'order',
+    loadChildren: () => import('./order/order.routes').then((m) => m.routes),
+    canActivate: [UserGuard],
+  },
+  {
     path: 'profile',
     loadChildren: () => import('./user/user.routes').then((m) => m.routes),
     canActivate: [UserGuard],
@@ -59,7 +70,6 @@ export const routes: Routes = [
       import('./admin/admin.routes').then((m) => m.adminUpdateProductRoutes),
     canActivate: [AdminGuard],
   },
-
   {
     path: '**',
     loadChildren: () =>

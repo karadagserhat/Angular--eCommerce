@@ -1,0 +1,9 @@
+@if(order?.items) { @for(item of order.items; track item) {
+<div class="align-element bg-accent mt-12">
+  {{ item.address }}
+  {{ item.total }}
+  {{ item.orderItems.id }}
+  {{ item.orderItems[0].name }}
+  {{ item.orderItems[0].image }}
+</div>
+} }

@@ -5,6 +5,8 @@ import { CartItem } from '../../../shared/models/CartItem';
 import { CommonModule } from '@angular/common';
 import { FormatPricePipe } from '../../../shared/pipes/formatPrice.pipe';
 import { RouterLink } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { selectCurrentUser } from '../../../auth/store/reducers';
 
 @Component({
   selector: 'eCommerce-cart',
@@ -13,10 +15,13 @@ import { RouterLink } from '@angular/router';
   templateUrl: './cart.component.html',
 })
 export class CartComponent implements OnInit {
-  private cartService = inject(CartService);
+  cartService = inject(CartService);
+  store = inject(Store);
 
   formatPrice: any;
   cart!: Cart;
+
+  currentUser$ = this.store.select(selectCurrentUser);
 
   ngOnInit(): void {
     this.cartService
@@ -25,7 +30,6 @@ export class CartComponent implements OnInit {
   }
 
   removeFromCart(cartItem: CartItem) {
-    console.log(cartItem);
     this.cartService.removeFromCart(cartItem.bookcase.id);
   }
 

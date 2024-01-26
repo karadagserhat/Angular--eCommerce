@@ -70,7 +70,7 @@
     </div>
     <!-- <CartTotals /> -->
     <div class="lg:col-span-4 lg:pl-4">
-      <div class="card bg-base-200">
+      <div class="card bg-base-200 bg-accent/20">
         <div class="card-body">
           <!-- {/* SUBTOTAL */} -->
           <p class="flex justify-between text-xs border-b border-base-300 pb-2">
@@ -95,9 +95,18 @@
         </div>
       </div>
 
-      <a to="/login" class="btn btn-accent btn-block mt-8 capitalize">
+      @if(currentUser$ | async; as user) {
+      <a
+        routerLink="/checkout"
+        class="btn btn-accent btn-block my-8 capitalize"
+      >
+        Checkout
+      </a>
+      } @else {
+      <a routerLink="/login" class="btn btn-accent btn-block mt-8 capitalize">
         please login
       </a>
+      }
     </div>
   </div>
   } @else {

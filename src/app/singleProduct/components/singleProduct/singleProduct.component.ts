@@ -12,11 +12,12 @@ import { map } from 'rxjs';
 import { CartService } from '../../../cart/services/cart.service';
 import { Bookcase } from '../../../shared/models/Bookcase';
 import { FormatPricePipe } from '../../../shared/pipes/formatPrice.pipe';
+import { ReviewComponent } from '../review/review.component';
 
 @Component({
   selector: 'eCommerce-singleProduct',
   standalone: true,
-  imports: [RouterLink, CommonModule, FormatPricePipe],
+  imports: [RouterLink, CommonModule, FormatPricePipe, ReviewComponent],
   templateUrl: './singleProduct.component.html',
 })
 export class SingleProductComponent implements OnInit {

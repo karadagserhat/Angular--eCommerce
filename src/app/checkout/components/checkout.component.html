@@ -1,0 +1,73 @@
+<section class="align-element pt-20">
+  <!-- section title -->
+  <div class="border-b border-base-300 pb-5">
+    <h2 class="text-3xl font-medium tracking-wider capitalize">
+      Place Your Orders
+    </h2>
+  </div>
+
+  <div class="mt-8 grid lg:grid-cols-12">
+    <!-- shipping info -->
+    <div class="lg:col-span-6">
+      <form [formGroup]="checkoutForm" (ngSubmit)="createOrder()">
+        <h4 class="font-medium text-xl capitalize">shipping information</h4>
+        <!-- email input -->
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text capitalize mt-4">Email</span>
+          </label>
+          <input
+            formControlName="email"
+            type="email"
+            name="email"
+            class="input input-bordered w-full max-w-md"
+          />
+        </div>
+        <!-- address input -->
+        <div class="form-control">
+          <label class="label">
+            <span class="label-text capitalize mt-4">Address</span>
+          </label>
+          <input
+            formControlName="address"
+            type="text"
+            name="text"
+            class="input input-bordered w-full max-w-md"
+          />
+        </div>
+        <!-- order button -->
+        <button
+          type="submit"
+          class="btn btn-block mt-7 bg-accent capitalize max-w-md"
+          [disabled]="checkoutForm.invalid"
+        >
+          place your order
+        </button>
+      </form>
+    </div>
+
+    <!-- <CartTotals /> -->
+    <div class="lg:col-span-6 mt-[5rem]">
+      <div class="card bg-base-200 bg-accent/30">
+        <div class="card-body">
+          <!-- {/* SUBTOTAL */} -->
+          <p class="flex justify-between text-xs border-b border-base-300 pb-2">
+            <span>Subtotal </span>
+            <span class="font-medium">321321 </span>
+          </p>
+          <!-- {/* SHIPPING */} -->
+          <p class="flex justify-between text-xs border-b border-base-300 pb-2">
+            <span>Tax</span>
+            <span class="font-medium">dsadsa </span>
+          </p>
+
+          <!-- {/* Order Total */} -->
+          <p class="flex justify-between text-sm mt-4 pb-2">
+            <span>Order Total</span>
+            <span class="font-medium">321321</span>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
