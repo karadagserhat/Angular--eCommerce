@@ -30,7 +30,13 @@
         {{ product.company }}
       </h4>
       <p class="mt-3 text-xl">{{ product.price | formatPrice }}</p>
-      <p class="mt-6 leading-8">{{ product.description }}</p>
+      @if(!product.numOfReviews) { } @else {
+      <div class="flex gap-2 mt-2">
+        <eCommerce-rating [rating]="product.averageRating" />
+        <span> ({{ product.numOfReviews }} reviews)</span>
+      </div>
+      }
+      <p class="mt-3 leading-8">{{ product.description }}</p>
 
       <!--  CART BTN -->
       <div class="mt-10">
@@ -42,7 +48,7 @@
   </div>
 
   <div class="mt-12">
-    <eCommerce-review [product]="product" />
+    <eCommerce-review [product]="product" [id]="id" />
   </div>
 </section>
 }

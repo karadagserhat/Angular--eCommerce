@@ -45,7 +45,16 @@ export class ProductContainer implements OnInit {
   setList() {
     this.layout.set('list');
   }
+
   setGrid() {
     this.layout.set('grid');
+  }
+
+  setActiveStyles(pattern: string) {
+    return ` btn btn-circle btn-sm ${
+      pattern === this.layout()
+        ? 'btn-accent text-accent-content'
+        : 'btn-ghost text-based-content'
+    }`;
   }
 }

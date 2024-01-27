@@ -6,6 +6,7 @@
     </h2>
   </div>
 
+  @if(cart.items.length > 0) {
   <div class="mt-8 grid lg:grid-cols-12">
     <!-- shipping info -->
     <div class="lg:col-span-6">
@@ -70,4 +71,10 @@
       </div>
     </div>
   </div>
+  } @else {
+  <div class="mt-12">
+    <div class="mb-5 ml-1">Empty Cart</div>
+    <button routerLink="/products" class="btn btn-accent">Get Shopping</button>
+  </div>
+  }
 </section>

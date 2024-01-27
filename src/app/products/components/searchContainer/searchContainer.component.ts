@@ -17,8 +17,6 @@ export class SearchContainer implements OnInit {
   company: string = '';
   url: string = '';
   sort: string = '';
-  price: number = 0;
-  max: number = 12.2;
 
   ngOnInit(): void {
     this.sort = 'newest';
@@ -29,7 +27,7 @@ export class SearchContainer implements OnInit {
   constructor(private router: Router, private store: Store) {}
 
   // &category=all&company=all&order=a-z&price=100000
-  searchButton() {
+  onClickButton() {
     this.url = `/products/?search=${this.search}&category=${this.category}&company=${this.company}&sort=${this.sort}`;
     this.store.dispatch(productsActions.getProducts({ url: this.url }));
   }

@@ -14,7 +14,7 @@
 } @if (currentUser$ | async; as currentUser ) {
 <header class="bg-accent py-2 text-accent-content">
   <div class="px-12 flex justify-center sm:justify-end">
-    <div class="flex gap-x-6 justify-center items-center">
+    <div class="flex gap-x-6 items-center justify-center sm:justify-end">
       <div class="text-xs sm:text-sm">Welcome, {{ currentUser.email }}</div>
       <button
         (click)="logout()"

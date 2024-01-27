@@ -21,6 +21,7 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class CheckoutComponent implements OnInit {
   cartService = inject(CartService);
+  cart: any;
 
   order: Order = new Order();
 
@@ -35,10 +36,10 @@ export class CheckoutComponent implements OnInit {
     private orderService: OrderService,
     private router: Router
   ) {
-    const cart = this.cartService.getCart();
-    this.order.items = cart.items;
-    this.order.total = cart.totalPrice;
-    this.order.tax = cart.tax;
+    this.cart = this.cartService.getCart();
+    this.order.items = this.cart.items;
+    this.order.total = this.cart.totalPrice;
+    this.order.tax = this.cart.tax;
   }
 
   ngOnInit(): void {

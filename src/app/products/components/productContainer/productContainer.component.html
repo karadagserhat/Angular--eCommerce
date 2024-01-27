@@ -1,21 +1,24 @@
 <section class="align-element">
   <!-- {/* PRODUCTS */} -->
   @if (products$ | async; as products) {
-  <div
-    class="flex justify-between items-center mt-8 border-b border-base-300 pb-5"
-  >
+  <div class="flex justify-between mt-8 border-b border-base-300 pb-5">
     <h4 class="font-medium text-base ml-2">
       @if(products.products.length === 0) {There is no product!} @else {
       {{ products.products.length }}
       product{{ products.products.length === 1 ? "" : "s" }}
       }
     </h4>
-    <div class="flex gap-x-2">
-      <button type="button" (click)="setGrid()">
+    <div class="flex items-end justify-end">
+      <button
+        class="mr-1"
+        [ngClass]="setActiveStyles('grid')"
+        type="button"
+        (click)="setGrid()"
+      >
         <!--grid icon  -->
         <svg
-          width="1.3em"
-          height="1.3em"
+          width="1.5em"
+          height="1.5em"
           viewBox="0 0 24 24"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
@@ -54,6 +57,7 @@
         <!-- list icon -->
         <svg
           fill="currentColor"
+          [ngClass]="setActiveStyles('list')"
           width="1.3em"
           height="1.3em"
           viewBox="0 0 1000 1000"

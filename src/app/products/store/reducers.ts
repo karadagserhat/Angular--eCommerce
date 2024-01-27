@@ -11,14 +11,21 @@ const initialState: ProductsStateInterface = {
 
 const productsFeature = createFeature({
   name: 'products',
+
   reducer: createReducer(
     initialState,
-    on(productsActions.getProducts, (state) => ({ ...state, isLoading: true })),
-    on(productsActions.getProductsSuccess, (state, action) => ({
+
+    on(productsActions.getProducts, (state) => ({
       ...state,
       isLoading: true,
+    })),
+
+    on(productsActions.getProductsSuccess, (state, action) => ({
+      ...state,
+      isLoading: false,
       data: action.products,
     })),
+
     on(productsActions.getProductsFailure, (state) => ({
       ...state,
       isLoading: false,

@@ -7,3 +7,30 @@
   {{ item.orderItems[0].image }}
 </div>
 } }
+
+<section class="align-element mt-12">
+  <div class="overflow-x-auto">
+    <table class="table table-sm table-zebra-zebra">
+      <thead class="">
+        <tr>
+          <th>Name</th>
+          <th>Company</th>
+          <th>Category</th>
+          <th>Price</th>
+          <th class="">Details</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if(order?.items) { @for(item of order.items; track item) {
+        <div class="align-element bg-accent mt-12">
+          {{ item.address }}
+          {{ item.total }}
+          {{ item.orderItems.id }}
+          {{ item.orderItems[0].name }}
+          {{ item.orderItems[0].image }}
+        </div>
+        } }
+      </tbody>
+    </table>
+  </div>
+</section>
