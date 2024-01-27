@@ -97,7 +97,10 @@ const deleteReview = async (req, res) => {
 const getSingleProductReviews = async (req, res) => {
   const { id: productId } = req.params;
 
-  const reviews = await Review.find({ product: productId });
+  const reviews = await Review.find({ product: productId }).populate({
+    path: "user",
+    select: "email",
+  });
 
   res.status(StatusCodes.OK).json({ reviews, count: reviews.length });
 };
