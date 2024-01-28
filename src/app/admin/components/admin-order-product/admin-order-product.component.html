@@ -1,0 +1,37 @@
+<div class="mt-8 align-element">
+  <div class="flex justify-between mt-12">
+    <h4 class="mb-4 capitalize">total orders : {{ order.count }}</h4>
+  </div>
+
+  <!-- table -->
+  <div class="overflow-x-auto">
+    <table class="table table-sm table-zebra-zebra">
+      <thead class="">
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Product</th>
+          <th>Price</th>
+          <th class="hidden sm:block">Date</th>
+          <th class="">Delivery</th>
+        </tr>
+      </thead>
+      <tbody>
+        @if(order?.orders) { @for(order of order.orders; track order.id) {
+        <tr class="" key="{id}">
+          <td>{{ order.user.email }}</td>
+          <td>{{ order.address }}</td>
+          <td>{{ order.orderItems[0].name }}</td>
+          <td>{{ order.total | formatPrice }}</td>
+          <td class="hidden sm:block">{{ order.createdAt | date }}</td>
+          <td class="">
+            <button (click)="onSubmit()" class="btn btn-sm bg-warning">
+              Not Delivered
+            </button>
+          </td>
+        </tr>
+        } }
+      </tbody>
+    </table>
+  </div>
+</div>

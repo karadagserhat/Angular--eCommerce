@@ -12,11 +12,12 @@ import { selectCurrentUser } from '../../auth/store/reducers';
 import { OrderService } from '../../order/services/order.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
+import { FormatPricePipe } from '../../shared/pipes/formatPrice.pipe';
 
 @Component({
   selector: 'eCommerce-checkout',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FormatPricePipe],
   templateUrl: './checkout.component.html',
 })
 export class CheckoutComponent implements OnInit {

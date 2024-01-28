@@ -5,6 +5,7 @@ import { AdminUpdateProductComponent } from './components/admin-update-product/a
 import { CreateProductService } from './services/createProduct.service';
 import { DeleteProductService } from './services/deleteProduct.service';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { AdminOrderProductComponent } from './components/admin-order-product/admin-order-product.component';
 
 export const adminDashboardRoutes: Routes = [
   {
@@ -35,5 +36,13 @@ export const adminUpdateProductRoutes: Routes = [
     path: '',
     component: AdminUpdateProductComponent,
     title: 'Admin - Update Product | E-Commerce',
+  },
+];
+
+export const adminOrderProductRoutes: Routes = [
+  {
+    path: '',
+    component: AdminOrderProductComponent,
+    title: 'Admin - Order Product | E-Commerce',
   },
 ];

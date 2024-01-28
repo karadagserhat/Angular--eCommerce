@@ -18,4 +18,14 @@ export class OrderService {
     const url = environment.apiUrl + '/orders/showAllMyOrders';
     return this.http.get<Order>(url);
   }
+
+  showAllOrders() {
+    const url = environment.apiUrl + '/orders';
+    return this.http.get<Order>(url);
+  }
+
+  updateOrder(id: string, paymentId: any) {
+    const url = `${environment.apiUrl}/orders/${id}`;
+    return this.http.put<Order>(url, paymentId);
+  }
 }

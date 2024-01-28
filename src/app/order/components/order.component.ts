@@ -11,11 +11,12 @@ import { Store } from '@ngrx/store';
 import { selectCurrentUser } from '../../auth/store/reducers';
 import { OrderService } from '../services/order.service';
 import { CommonModule } from '@angular/common';
+import { FormatPricePipe } from '../../shared/pipes/formatPrice.pipe';
 
 @Component({
   selector: 'eCommerce-order',
   standalone: true,
-  imports: [ReactiveFormsModule, CommonModule],
+  imports: [ReactiveFormsModule, CommonModule, FormatPricePipe],
   templateUrl: './order.component.html',
 })
 export class OrderComponent {

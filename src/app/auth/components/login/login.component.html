@@ -59,7 +59,9 @@
         class="btn bg-accent/80 hover:bg-accent/90 text-accent-content font-medium btn-block rounded-sm uppercase h-[64px] tracking-wide disabled-btn"
         [disabled]="form.invalid || (isSubmitting$ | async)"
       >
-        Log In
+        @if(isSubmitting$ | async) {
+        <span class="loading loading-spinner loading-xs"></span>
+        } @else { Log In }
       </button>
     </div>
   </form>

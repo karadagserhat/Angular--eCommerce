@@ -8,9 +8,7 @@
     <eCommerce-backend-error-messages [backendErrors]="backendErrors">
     </eCommerce-backend-error-messages>
   </div>
-  }@else {
-  <div>&nbsp;</div>
-  }
+  }@else { }
   <!-- name -->
   <div class="mt-[19px]">
     <input
@@ -23,33 +21,45 @@
   </div>
 
   <!-- company -->
-  <div class="mt-[19px]">
-    <select
-      name="company"
-      id="company"
-      class="select select-bordered select-sm"
-      formControlName="company"
-    >
-      <option key="ikea" value="ikea">ikea</option>
-      <option key="tjena" value="tjena">tjena</option>
-      <option key="baggego" value="baggego">baggego</option>
-      <option key="portvakt" value="portvakt">portvakt</option>
-    </select>
+  <div class="flex gap-6">
+    <div class="mt-[19px]">
+      <select
+        name="company"
+        id="company"
+        class="select select-bordered select-sm"
+        formControlName="company"
+      >
+        <option key="ikea" value="ikea">ikea</option>
+        <option key="tjena" value="tjena">tjena</option>
+        <option key="baggego" value="baggego">baggego</option>
+        <option key="portvakt" value="portvakt">portvakt</option>
+      </select>
+    </div>
+
+    <!-- category -->
+    <div class="mt-[19px]">
+      <select
+        name="category"
+        id="category"
+        class="select select-bordered select-sm"
+        formControlName="category"
+      >
+        <option key="wooden" value="wooden">wooden</option>
+        <option key="children" value="children">children</option>
+        <option key="glass" value="glass">glass</option>
+        <option key="decorative" value="decorative">decorative</option>
+      </select>
+    </div>
   </div>
 
-  <!-- category -->
   <div class="mt-[19px]">
-    <select
-      name="category"
-      id="category"
-      class="select select-bordered select-sm"
-      formControlName="category"
-    >
-      <option key="wooden" value="wooden">wooden</option>
-      <option key="children" value="children">children</option>
-      <option key="glass" value="glass">glass</option>
-      <option key="decorative" value="decorative">decorative</option>
-    </select>
+    <input
+      formControlName="image"
+      type="file"
+      name="image"
+      placeholder="image"
+      class=""
+    />
   </div>
 
   <!-- description -->
@@ -61,7 +71,7 @@
       cols="50"
       name="description"
       placeholder="Description"
-      class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] outline-none text-2xl w-full bg-inherit"
+      class="border-b-[1px] border-base-content/50 placeholder:text-[1.1rem] placeholder:text-base-content/50 h-[3.5rem] text-2xl w-full bg-inherit"
     >
  Description
     </textarea>

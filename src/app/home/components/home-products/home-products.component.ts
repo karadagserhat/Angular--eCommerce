@@ -32,6 +32,8 @@ export class ProductsComponent {
   constructor(private store: Store) {}
 
   ngOnInit(): void {
-    this.store.dispatch(productsActions.getProducts({ url: '/products' }));
+    this.store.dispatch(
+      productsActions.getProducts({ url: '/products/?sort=best' })
+    );
   }
 }

@@ -1,26 +1,23 @@
 @if(products$ | async; as products) {
 <div class="mt-12 align-element">
-  <div class="grid grid-cols-2 gap-12">
-    <div class="grid grid-cols-2 gap-6">
-      <div class="stats shadow">
-        <div class="stat">
-          <div class="stat-title">Total Page Views</div>
+  <div class="grid grid-cols-3 gap-12">
+    <div class="stats shadow rounded-sm">
+      <div class="stat flex flex-col justify-center items-center">
+        <div class="flex flex-row gap-12 items-center justify-between">
           <div class="stat-value">{{ products.products.length }}</div>
-          <div class="stat-desc">21% more than last month</div>
+          <div class="stat-value grid place-items-center text-2xl">
+            <i
+              class="fas fa-dumpster bg-primary/70 text-primary-content rounded-box h-[4rem] w-[4rem] grid place-items-center"
+            ></i>
+          </div>
         </div>
-      </div>
-      <div class="stats shadow">
-        <div class="stat">
-          <div class="stat-title">Total Page Views</div>
-          <div class="stat-value">{{ products.products.length }}</div>
-          <div class="stat-desc">21% more than last month</div>
-        </div>
+        <div class="stat-title">Total Products</div>
       </div>
     </div>
 
     <!--  table -->
 
-    <div class="overflow-x-auto">
+    <div class="overflow-x-auto col-span-2">
       <table class="table table-sm table-zebra-zebra">
         <thead class="">
           <tr>

@@ -9,14 +9,14 @@ import { environment } from '../../../environments/environment';
 export class ReviewsService {
   constructor(private http: HttpClient) {}
 
-  getReviews(url: string) {
-    const fullUrl = environment.apiUrl + url;
-    return this.http.get(fullUrl);
-  }
-  // getReviews() {
-  //   const fullUrl = `${environment.apiUrl}/reviews`;
+  // getReviews(url: string) {
+  //   const fullUrl = environment.apiUrl + url;
   //   return this.http.get(fullUrl);
   // }
+  getReviews() {
+    const fullUrl = `${environment.apiUrl}/reviews`;
+    return this.http.get(fullUrl);
+  }
 
   getSingleProductReviews(id: string) {
     const fullUrl = `${environment.apiUrl}/products/${id}/reviews`;

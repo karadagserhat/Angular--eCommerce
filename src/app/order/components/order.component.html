@@ -1,4 +1,4 @@
-@if(order?.items) { @for(item of order.items; track item) {
+<!-- @if(order?.items) { @for(item of order.items; track item) {
 <div class="align-element bg-accent mt-12">
   {{ item.address }}
   {{ item.total }}
@@ -6,29 +6,40 @@
   {{ item.orderItems[0].name }}
   {{ item.orderItems[0].image }}
 </div>
-} }
+} } -->
 
-<section class="align-element mt-12">
+<section class="align-element pt-20">
+  <!-- section title -->
+  <div class="border-b border-base-300 pb-5">
+    <h2 class="text-3xl font-medium tracking-wider capitalize">Your Orders</h2>
+  </div>
+
   <div class="overflow-x-auto">
     <table class="table table-sm table-zebra-zebra">
       <thead class="">
         <tr>
           <th>Name</th>
-          <th>Company</th>
-          <th>Category</th>
-          <th>Price</th>
-          <th class="">Details</th>
+          <th>Address</th>
+          <th>Cost</th>
+          <th>Date</th>
+          <th class="">Delivery</th>
         </tr>
       </thead>
       <tbody>
         @if(order?.items) { @for(item of order.items; track item) {
-        <div class="align-element bg-accent mt-12">
-          {{ item.address }}
-          {{ item.total }}
-          {{ item.orderItems.id }}
-          {{ item.orderItems[0].name }}
-          {{ item.orderItems[0].image }}
-        </div>
+        <tr class="" key="{id}">
+          <td>{{ item.orderItems[0].name }}</td>
+          <td>{{ item.address }}</td>
+          <td>{{ item.total | formatPrice }}</td>
+          <td>{{ item.createdAt | date }}</td>
+          <td class="hidden sm:block">
+            @if(item.status === "delivered") {
+            <div class="badge badge-primary badge-md ml-2"></div>
+            }@else {
+            <div class="badge bg-red-500 badge-md ml-2"></div>
+            }
+          </td>
+        </tr>
         } }
       </tbody>
     </table>

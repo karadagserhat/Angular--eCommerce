@@ -54,18 +54,22 @@
           <!-- {/* SUBTOTAL */} -->
           <p class="flex justify-between text-xs border-b border-base-300 pb-2">
             <span>Subtotal </span>
-            <span class="font-medium">321321 </span>
+            <span class="font-medium">
+              {{ cart.totalPrice | formatPrice }}
+            </span>
           </p>
           <!-- {/* SHIPPING */} -->
           <p class="flex justify-between text-xs border-b border-base-300 pb-2">
-            <span>Tax</span>
-            <span class="font-medium">dsadsa </span>
+            <span>Tax </span>
+            <span class="font-medium">{{ cart.tax | formatPrice }} </span>
           </p>
 
           <!-- {/* Order Total */} -->
           <p class="flex justify-between text-sm mt-4 pb-2">
             <span>Order Total</span>
-            <span class="font-medium">321321</span>
+            <span class="font-medium">{{
+              cart.totalPrice + cart.tax | formatPrice
+            }}</span>
           </p>
         </div>
       </div>
