@@ -62,7 +62,10 @@ const createOrder = async (req, res) => {
 };
 
 const getAllOrders = async (req, res) => {
-  const orders = await Order.find({});
+  const orders = await Order.find({}).populate({
+    path: "user",
+    select: "email",
+  });
   res.status(StatusCodes.OK).json({ orders, count: orders.length });
 };
 
@@ -92,7 +95,7 @@ const updateOrder = async (req, res) => {
   checkPermissions(req.user, order.user);
 
   order.paymentIntentId = paymentIntentId;
-  order.status = "paid";
+  order.status = "delivered";
   await order.save();
 
   res.status(StatusCodes.OK).json({ order });

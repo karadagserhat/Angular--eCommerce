@@ -39,6 +39,7 @@ const getAllProducts = async (req, res) => {
     oldest: "createdAt",
     "a-z": "name",
     "z-a": "-name",
+    best: "-averageRating",
   };
 
   const sortKey = sortOptions[sort] || sortOptions.newest;
