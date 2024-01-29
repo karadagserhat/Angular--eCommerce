@@ -25,7 +25,6 @@ export class AdminFormComponent implements OnInit {
     category: '',
     description: '',
     price: 0,
-    image: '',
   });
 
   constructor(private fb: FormBuilder) {}
