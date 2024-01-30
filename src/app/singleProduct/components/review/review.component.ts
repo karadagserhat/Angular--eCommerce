@@ -12,6 +12,7 @@ import {
 } from '@angular/forms';
 import { HttpErrorResponse } from '@angular/common/http';
 import { RatingComponent } from '../rating/rating.component';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'eCommerce-review',
@@ -29,6 +30,7 @@ export class ReviewComponent implements OnInit {
   store = inject(Store);
   router = inject(Router);
   reviewService = inject(ReviewsService);
+  toastrService = inject(ToastrService);
   fb = inject(FormBuilder);
   reviews: any;
 
@@ -71,9 +73,11 @@ export class ReviewComponent implements OnInit {
           this.router.navigateByUrl(`/products/${this.id}`);
           // this.redirectTo(`/products/${this.id}`);
           this.reloadCurrentRoute();
+          this.toastrService?.success(`Review successfully created.`);
         },
         error: (errorResponse: HttpErrorResponse) => {
           console.log('err', errorResponse);
+          this.toastrService?.error(errorResponse.error.msg);
         },
       });
   }

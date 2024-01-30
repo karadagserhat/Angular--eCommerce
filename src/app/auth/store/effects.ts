@@ -7,6 +7,7 @@ import { CurrentUserInterface } from '../../shared/types/currentUser.interface';
 import { HttpErrorResponse } from '@angular/common/http';
 import { PersistanceService } from '../../shared/services/persistance.service';
 import { Router } from '@angular/router';
+import { ToastrService } from 'ngx-toastr';
 
 export const getCurrentUserEffect = createEffect(
   (
@@ -41,7 +42,8 @@ export const registerEffect = createEffect(
   (
     actions$ = inject(Actions),
     authService = inject(AuthService),
-    persistanceService = inject(PersistanceService)
+    persistanceService = inject(PersistanceService),
+    toastrService = inject(ToastrService)
   ) => {
     return actions$.pipe(
       ofType(authActions.register),
@@ -50,9 +52,11 @@ export const registerEffect = createEffect(
           map((currentUser: CurrentUserInterface) => {
             // window.localStorage.setItem("accessToken", currentUser.token)
             persistanceService.set('accessToken', currentUser.token);
+            toastrService?.success(`Welcome ${currentUser.email}`);
             return authActions.registerSuccess({ currentUser });
           }),
           catchError((errorResponse: HttpErrorResponse) => {
+            toastrService?.error(errorResponse.error.msg);
             return of(
               authActions.registerFailure({
                 errors: errorResponse.error.msg,
@@ -84,7 +88,8 @@ export const loginEffect = createEffect(
   (
     actions$ = inject(Actions),
     authService = inject(AuthService),
-    persistanceService = inject(PersistanceService)
+    persistanceService = inject(PersistanceService),
+    toastrService = inject(ToastrService)
   ) => {
     return actions$.pipe(
       ofType(authActions.login),
@@ -93,9 +98,11 @@ export const loginEffect = createEffect(
           map((currentUser: CurrentUserInterface) => {
             // window.localStorage.setItem("accessToken", currentUser.token)
             persistanceService.set('accessToken', currentUser.token);
+            toastrService?.success(`Welcome ${currentUser.email}`);
             return authActions.loginSuccess({ currentUser });
           }),
           catchError((errorResponse: HttpErrorResponse) => {
+            toastrService?.error(errorResponse.error.msg);
             return of(
               authActions.loginFailure({
                 errors: errorResponse.error.msg,
@@ -141,15 +148,21 @@ export const logoutEffect = createEffect(
 
 // Update
 export const updateCurrentUserEffect = createEffect(
-  (actions$ = inject(Actions), authService = inject(AuthService)) => {
+  (
+    actions$ = inject(Actions),
+    authService = inject(AuthService),
+    toastrService = inject(ToastrService)
+  ) => {
     return actions$.pipe(
       ofType(authActions.updateCurrentUser),
       switchMap(({ currentUserReq }) => {
         return authService.updateCurrentUser(currentUserReq).pipe(
           map((currentUser: CurrentUserInterface) => {
+            toastrService?.success(`New email: ${currentUser.email}`);
             return authActions.updateCurrentUserSuccess({ currentUser });
           }),
           catchError((errorResponse: HttpErrorResponse) => {
+            toastrService?.error(errorResponse.error.msg);
             return of(
               authActions.updateCurrentUserFailure({
                 errors: errorResponse.error.msg,

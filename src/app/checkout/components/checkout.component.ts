@@ -13,6 +13,7 @@ import { OrderService } from '../../order/services/order.service';
 import { Router } from '@angular/router';
 import { HttpErrorResponse } from '@angular/common/http';
 import { FormatPricePipe } from '../../shared/pipes/formatPrice.pipe';
+import { ToastrService } from 'ngx-toastr';
 
 @Component({
   selector: 'eCommerce-checkout',
@@ -22,6 +23,7 @@ import { FormatPricePipe } from '../../shared/pipes/formatPrice.pipe';
 })
 export class CheckoutComponent implements OnInit {
   cartService = inject(CartService);
+  toastrService = inject(ToastrService);
   cart: any;
 
   order: Order = new Order();
@@ -62,10 +64,11 @@ export class CheckoutComponent implements OnInit {
       next: () => {
         this.router.navigateByUrl('/order');
         this.cartService.clearCart();
+        this.toastrService?.success(`Order successfully created.`);
       },
       error: (errorResponse: HttpErrorResponse) => {
         console.log('err*********', errorResponse);
-        // toastService
+        this.toastrService?.error(errorResponse.error.msg);
       },
     });
   }

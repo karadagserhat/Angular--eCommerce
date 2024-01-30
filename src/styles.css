@@ -2,6 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@import "ngx-toastr/toastr";
+
 @layer components {
   .align-element {
     @apply mx-auto max-w-6xl px-8;

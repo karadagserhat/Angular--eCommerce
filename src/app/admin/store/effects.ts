@@ -9,18 +9,21 @@ import { ProductInterface } from '../types/product.interface';
 import { HttpErrorResponse } from '@angular/common/http';
 import { GetProductService } from '../services/getProduct.service';
 import { UpdateProductService } from '../services/updateProduct.service';
+import { ToastrService } from 'ngx-toastr';
 
 // DELETE
 export const deleteProductEffect = createEffect(
   (
     actions$ = inject(Actions),
-    deleteProductService = inject(DeleteProductService)
+    deleteProductService = inject(DeleteProductService),
+    toastrService = inject(ToastrService)
   ) => {
     return actions$.pipe(
       ofType(adminProductsActions.deleteProduct),
       switchMap(({ id }) => {
         return deleteProductService.deleteProduct(id).pipe(
           map(() => {
+            toastrService?.success('Product successfully deleted!');
             return adminProductsActions.deleteProductSuccess();
           }),
           catchError(() => {
@@ -49,16 +52,19 @@ export const redirectAfterDeleteEffect = createEffect(
 export const createProductEffect = createEffect(
   (
     actions$ = inject(Actions),
-    createProductService = inject(CreateProductService)
+    createProductService = inject(CreateProductService),
+    toastrService = inject(ToastrService)
   ) => {
     return actions$.pipe(
       ofType(adminProductsActions.createProduct),
       switchMap(({ request }) => {
         return createProductService.createProduct(request).pipe(
           map((product: ProductInterface) => {
+            toastrService?.success('New product successfully created!');
             return adminProductsActions.createProductSuccess({ product });
           }),
           catchError((errorResponse: HttpErrorResponse) => {
+            toastrService?.error(errorResponse.error.msg);
             return of(
               adminProductsActions.createProductFailure({
                 errors: errorResponse.error.msg,
@@ -111,16 +117,19 @@ export const getProductEffect = createEffect(
 export const updateProductEffect = createEffect(
   (
     actions$ = inject(Actions),
-    updateProductService = inject(UpdateProductService)
+    updateProductService = inject(UpdateProductService),
+    toastrService = inject(ToastrService)
   ) => {
     return actions$.pipe(
       ofType(adminProductsActions.updateProduct),
       switchMap(({ request, id }) => {
         return updateProductService.updateProduct(id, request).pipe(
           map((product: ProductInterface) => {
+            toastrService?.success('Product successfully updated!');
             return adminProductsActions.updateProductSuccess({ product });
           }),
           catchError((errorResponse: HttpErrorResponse) => {
+            toastrService?.error(errorResponse.error.msg);
             return of(
               adminProductsActions.updateProductFailure({
                 errors: errorResponse.error.msg,

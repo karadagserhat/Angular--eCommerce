@@ -1,7 +1,14 @@
-import { ApplicationConfig, isDevMode } from '@angular/core';
+import {
+  ApplicationConfig,
+  importProvidersFrom,
+  isDevMode,
+} from '@angular/core';
 import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
-import { provideAnimations } from '@angular/platform-browser/animations';
+import {
+  BrowserAnimationsModule,
+  provideAnimations,
+} from '@angular/platform-browser/animations';
 import { provideState, provideStore } from '@ngrx/store';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import { authFeatureKey, authReducer } from './auth/store/reducers';
@@ -30,18 +37,24 @@ import {
   updateProductReducer,
 } from './admin/components/admin-update-product/store/reducers';
 import { UpdateProductService } from './admin/services/updateProduct.service';
+import { Toast, ToastrModule, provideToastr } from 'ngx-toastr';
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    provideAnimations(),
     [
       SingleProductService,
       DeleteProductService,
       CreateProductService,
       UpdateProductService,
     ],
+    provideToastr({
+      timeOut: 3000,
+      positionClass: 'toast-bottom-right',
+      preventDuplicates: true,
+    }),
     provideHttpClient(withInterceptors([authInterceptor])),
     provideRouter(routes),
-    provideAnimations(),
     provideStore({
       router: routerReducer,
     }),
