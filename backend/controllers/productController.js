@@ -117,7 +117,7 @@ const uploadImage = async (req, res) => {
 
   res
     .status(StatusCodes.OK)
-    .json({ image: `http://localhost:5000/uploads/${productImage.name}` });
+    .json({ image: `${process.env.URL}/uploads/${productImage.name}` });
 };
 
 module.exports = {
