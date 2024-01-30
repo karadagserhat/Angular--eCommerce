@@ -2,6 +2,15 @@
 
 > eCommerce project built with the MEAN stack & NgRx.
 
+## Used Technologies
+
+- Frontend : **Angular**
+- Styling : **Tailwind CSS** / **daisyUI**
+- Form Management : **Angular Reactive Forms**
+- State Management : **NgRx** / **Angular Service**
+- Backend : **Node.js** / **Express.js**
+- Database: **MongoDB** / **Mongoose.js**
+
 ## Features
 
 - Light / Dark mode
