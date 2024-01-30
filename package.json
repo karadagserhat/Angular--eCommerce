@@ -2,6 +2,7 @@
   "name": "angular-e-commerce",
   "version": "0.0.0",
   "scripts": {
+    "setup-project": "npm i && cd backend && npm i",
     "ng": "ng",
     "start": "ng serve",
     "server": "cd backend && npm run start",
