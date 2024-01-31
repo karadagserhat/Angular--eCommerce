@@ -2,6 +2,8 @@
 
 > eCommerce project built with the MEAN stack & NgRx.
 
+[Hyper Company Angular PDF File](https://github.com/karadagserhat/Angular-eCommerce/blob/main/hyper-company-angular.pdf)
+
 ## Used Technologies
 
 - Frontend : **Angular**
